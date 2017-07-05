@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Link } from 'react-router'
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -32,7 +33,7 @@ class App extends Component {
               key="sub1"
               title={<span><Icon type="user" /><span className="nav-text">用户</span></span>}
             >
-              <Menu.Item key="1">用户列表</Menu.Item>
+              <Menu.Item key="/user"><Link to="/users">用户列表</Link></Menu.Item>
               <Menu.Item key="2">商家类型</Menu.Item>
               <Menu.Item key="3">商家列表</Menu.Item>
             </SubMenu>
