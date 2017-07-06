@@ -28,12 +28,12 @@ class App extends Component {
         >
           <div className="logo" />
 
-          <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['6']}>
+          <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['/user']}>
             <SubMenu
               key="sub1"
               title={<span><Icon type="user" /><span className="nav-text">用户</span></span>}
             >
-              <Menu.Item key="/user"><Link to="/users">用户列表</Link></Menu.Item>
+              <Menu.Item key="/user"><Link to="/user">用户列表</Link></Menu.Item>
               <Menu.Item key="2">商家类型</Menu.Item>
               <Menu.Item key="3">商家列表</Menu.Item>
             </SubMenu>
