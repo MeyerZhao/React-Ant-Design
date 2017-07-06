@@ -129,7 +129,7 @@ class RegistrationForm extends React.Component {
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label="设置面膜"
+          label="设置密码"
           hasFeedback
         >
           {getFieldDecorator('password', {
