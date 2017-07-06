@@ -1,10 +1,11 @@
 import React from 'react'
 import { Form, Input, Select, Button,} from 'antd';
+import { DatePicker,Row, Col } from 'antd';
+
+const InputGroup = Input.Group;
+
 const FormItem = Form.Item;
 const Option = Select.Option;
-
-
-
 
 class RegistrationForm extends React.Component {
   state = {
@@ -83,6 +84,9 @@ class RegistrationForm extends React.Component {
       </Select>
     );
 
+    function handleChange(value) {
+      console.log(`selected ${value}`);
+    }
 
 
     return (
@@ -90,26 +94,95 @@ class RegistrationForm extends React.Component {
 
         <FormItem
           {...formItemLayout}
-          label="电话"
+          label="商家名称"
+          hasFeedback
         >
-          {getFieldDecorator('phone', {
-            rules: [{ required: true, message: '请输入你的电话!' }],
+          {getFieldDecorator('name', {
+            rules: [{ required: true, message: '请输入名称!', whitespace: true }],
           })(
-            <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+            <Input />
           )}
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="用户昵称"
+          label="商家UID"
           hasFeedback
         >
-          {getFieldDecorator('nickname', {
-            rules: [{ required: true, message: '请输入昵称!', whitespace: true }],
+          {getFieldDecorator('uid', {
+            rules: [{ required: true, message: '请输入商家UID!', whitespace: true }],
           })(
             <Input />
           )}
         </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="商家类型"
+          hasFeedback
+        >
+          {getFieldDecorator('type', {
+            rules: [{ required: true, message: '请选择商家类型!', whitespace: true }],
+          })(
+            <Select defaultValue="1"  onChange={handleChange}>
+              <Option value="1">实体花店</Option>
+              <Option value="2">实体花店2</Option>
+              <Option value="3">实体花店3</Option>
+            </Select>
+          )}
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="主营类目"
+          hasFeedback
+        >
+          {getFieldDecorator('maintype', {
+            rules: [{ required: true, message: '请选择商家类型!', whitespace: true }],
+          })(
+            <Select defaultValue="1"  onChange={handleChange}>
+              <Option value="1">切花</Option>
+              <Option value="2">切叶</Option>
+              <Option value="3">绿植</Option>
+              <Option value="4">盆栽</Option>
+            </Select>
+          )}
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="有效日期"
+        > 
+          <DatePicker
+            showTime
+            style={{ width: '100%' }} 
+            format="YYYY-MM-DD HH:mm:ss"
+            placeholder="选择有效日期"
+          />
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="联系电话"
+        >{getFieldDecorator('uid', {
+            rules: [{ required: true, message: '请输入商家UID!', whitespace: true }],
+          })(
+            <InputGroup size="large">
+              <Row gutter={8}>
+                <Col span={6}>
+                  <Input defaultValue="联系人名" />
+                </Col>
+                <Col span={18}>
+                  <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+                </Col>
+              </Row>
+            </InputGroup>
+          )}
+         
+
+
+        </FormItem>
+
 
         <FormItem
           {...formItemLayout}

@@ -1,17 +1,21 @@
 import React from 'react'
-import { Table, Icon } from 'antd';
+import { Table } from 'antd';
 
 const columns = [{
-  title: '名字',
+  title: '类型编码',
   dataIndex: 'name',
   key: 'name',
   render: text => <a href="">{text}</a>,
 }, {
-  title: '年龄',
+  title: '类型名称',
   dataIndex: 'age',
   key: 'age',
 }, {
-  title: '地址',
+  title: '商家数量',
+  dataIndex: 'address',
+  key: 'address',
+}, {
+  title: '更新时间',
   dataIndex: 'address',
   key: 'address',
 }, {
@@ -19,11 +23,9 @@ const columns = [{
   key: 'action',
   render: (text, record) => (
     <span>
-      <a href="">删除</a>
+      <a href="">编辑</a>
       <span className="ant-divider" />
-      <a href="" className="ant-dropdown-link">
-        更多操作 <Icon type="down" />
-      </a>
+      <a href="">删除</a>
     </span>
   ),
 }];

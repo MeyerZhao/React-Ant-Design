@@ -6,6 +6,8 @@ const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
 
+
+
 class App extends Component {
 	state = {
     collapsed: false,
@@ -28,8 +30,9 @@ class App extends Component {
         >
           <div className="logo" />
 
-          <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['/userlist']}>
+          <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['/']}>
 
+            <Menu.Item key="/"><Link to="">首页</Link></Menu.Item>
             <SubMenu
               key="sub1"
               title={<span><Icon type="user" /><span className="nav-text">用户</span></span>}
@@ -69,7 +72,7 @@ class App extends Component {
             <Breadcrumb style={{ margin: '12px 0' }}>
               <Breadcrumb.Item>User</Breadcrumb.Item>
               <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
+            </Breadcrumb>   
             <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
               {this.props.children}
             </div>

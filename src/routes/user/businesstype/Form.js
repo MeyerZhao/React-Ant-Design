@@ -1,7 +1,7 @@
 import React from 'react'
-import { Form, Input, Select, Button,} from 'antd';
+import { Form, Input, Button,} from 'antd';
 const FormItem = Form.Item;
-const Option = Select.Option;
+
 
 
 
@@ -74,14 +74,6 @@ class RegistrationForm extends React.Component {
         },
       },
     };
-    const prefixSelector = getFieldDecorator('prefix', {
-      initialValue: '86',
-    })(
-      <Select style={{ width: 60 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-    );
 
 
 
@@ -90,22 +82,11 @@ class RegistrationForm extends React.Component {
 
         <FormItem
           {...formItemLayout}
-          label="电话"
-        >
-          {getFieldDecorator('phone', {
-            rules: [{ required: true, message: '请输入你的电话!' }],
-          })(
-            <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
-          )}
-        </FormItem>
-
-        <FormItem
-          {...formItemLayout}
-          label="用户昵称"
+          label="类型名称"
           hasFeedback
         >
           {getFieldDecorator('nickname', {
-            rules: [{ required: true, message: '请输入昵称!', whitespace: true }],
+            rules: [{ required: true, message: '请输入类型名称!', whitespace: true }],
           })(
             <Input />
           )}
@@ -113,17 +94,17 @@ class RegistrationForm extends React.Component {
 
         <FormItem
           {...formItemLayout}
-          label="登录密码"
+          label="类型编号"
           hasFeedback
         >
-          {getFieldDecorator('password', {
+          {getFieldDecorator('number', {
             rules: [{
-              required: true, message: '请设置你的密码!',
+              required: true, message: '请输入编号!',
             }, {
               validator: this.checkConfirm,
             }],
           })(
-            <Input type="password" />
+            <Input type="text" />
           )}
         </FormItem>
       
