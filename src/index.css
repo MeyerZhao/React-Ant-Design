@@ -32,3 +32,11 @@ body {
 .ant-layout-sider-collapsed .ant-menu-submenu-vertical > .ant-menu-submenu-title:after {
   display: none;
 }
+
+.advanced-search-form {
+    padding: 38px;
+    background: #597092;
+    border: 1px solid #d9d9d9;
+    margin-left: -24px;
+    margin-right: -24px;
+}
