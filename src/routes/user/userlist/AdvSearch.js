@@ -69,9 +69,9 @@ class AdvancedSearchForm extends React.Component {
                 <Option value="3">提现次数</Option>
                 <Option value="4">提现金额</Option>
               </Select>
-              <Input size="large" style={{ width: 100, textAlign: 'center' }} placeholder="最小值" />
-              <Input size="large" style={{ width: 24, borderLeft: 0, pointerEvents: 'none' }} placeholder="~" />
-              <Input size="large" style={{ width: 100, textAlign: 'center', borderLeft: 0 }} placeholder="最大值" />
+              <Input size="large" style={{ width: '25%', textAlign: 'center' }} placeholder="最小值" />
+              <Input size="large" style={{ width: 25, borderLeft: 0, pointerEvents: 'none' }} placeholder="~" />
+              <Input size="large" style={{ width: '25%', textAlign: 'center', borderLeft: 0 }} placeholder="最大值" />
             </InputGroup>
           </Col>
          

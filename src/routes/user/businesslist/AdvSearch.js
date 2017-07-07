@@ -1,6 +1,7 @@
 import React from 'react'
-import { Form, Row, Col, Input, Button, Select } from 'antd'
+import { Form, Row, Col, Input, Button, Select, Cascader } from 'antd'
 import { DatePicker } from 'antd'
+import city from '../../../utils/city.js'
 
 const InputGroup = Input.Group;
 const Option = Select.Option;
@@ -38,7 +39,7 @@ class AdvancedSearchForm extends React.Component {
         className="advanced-search-form"
         onSubmit={this.handleSearch}
       >
-        <Row gutter={24}>
+        <Row gutter={16}>
           <Col {...ColProps} xl={4} md={6} >
             <Search 
                 size="large"
@@ -49,8 +50,8 @@ class AdvancedSearchForm extends React.Component {
           <Col {...ColProps} xl={6} md={9} >
             <InputGroup compact>
               <Select defaultValue="Option1" size="large" style={{ width: '25%' }}>
-                <Option value="Option1">注册时间</Option>
-                <Option value="Option2">上次登录</Option>
+                <Option value="Option1">开店时间</Option>
+                <Option value="Option2">有效期限</Option>
               </Select>
               <RangePicker
                   style={{ width: '75%' }} 
@@ -63,11 +64,10 @@ class AdvancedSearchForm extends React.Component {
           </Col>
           <Col {...ColProps} xl={6} md={9} >
             <InputGroup compact>
-              <Select defaultValue="1" size="large" style={{ width: '25%' }}>
-                <Option value="1">消费次数</Option>
-                <Option value="2">消费金额</Option>
-                <Option value="3">提现次数</Option>
-                <Option value="4">提现金额</Option>
+              <Select defaultValue="1" size="large" style={{ width: '25%' }}  >
+                <Option value="1">商品数量</Option>
+                <Option value="2">用户数量</Option>
+                <Option value="3">成交金额</Option>
               </Select>
               <Input size="large" style={{ width: 100, textAlign: 'center' }} placeholder="最小值" />
               <Input size="large" style={{ width: 24, borderLeft: 0, pointerEvents: 'none' }} placeholder="~" />
@@ -75,6 +75,38 @@ class AdvancedSearchForm extends React.Component {
             </InputGroup>
           </Col>
          
+        </Row>
+        <Row gutter={16}>
+          <Col {...ColProps} xl={2} md={3} >
+            <Select size="large" placeholder="商家类型">
+                  <Option value="1">商家类型1</Option>
+                  <Option value="2">商家类型2</Option>
+                  <Option value="3">商家类型3</Option>
+                </Select>
+          </Col>
+          <Col {...ColProps} xl={2} md={3} >
+            <Select size="large" placeholder="选择主营类目">
+                  <Option value="1">选择主营类目1</Option>
+                  <Option value="2">选择主营类目2</Option>
+                  <Option value="3">选择主营类目3</Option>
+                </Select>
+          </Col>
+          <Col {...ColProps} xl={2} md={9} >
+             <Select size="large" placeholder="店铺状态">
+                  <Option value="1">营业</Option>
+                  <Option value="2">歇业</Option>
+                  <Option value="3">待审核</Option>
+                </Select>
+          </Col>
+           <Col {...ColProps} xl={4} md={9} >
+             <Cascader
+               size="large"
+               style={{ width: '100%' }}
+               options={city}
+               placeholder="请选择地址"
+               changeOnSelect
+             />
+          </Col>
         </Row>
         <Row>
           <Col span={24} style={{ textAlign: 'left' }}>

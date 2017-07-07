@@ -2,16 +2,52 @@ import React from 'react'
 import { Table, Icon } from 'antd';
 
 const columns = [{
-  title: '名字',
+  title: '商家UID',
   dataIndex: 'name',
   key: 'name',
   render: text => <a href="">{text}</a>,
 }, {
-  title: '年龄',
+  title: '商家名称',
   dataIndex: 'age',
   key: 'age',
 }, {
-  title: '地址',
+  title: '商家类型',
+  dataIndex: 'address',
+  key: '1',
+}, {
+  title: '主营类目',
+  dataIndex: 'address',
+  key: '2',
+}, {
+  title: '当前状态',
+  dataIndex: 'address',
+  key: '3',
+}, {
+  title: '坐在地区',
+  dataIndex: 'address',
+  key: '4',
+}, {
+  title: '开店时间',
+  dataIndex: 'address',
+  key: '5',
+}, {
+  title: '有效期限',
+  dataIndex: 'address',
+  key: '6',
+}, {
+  title: '主题信息',
+  dataIndex: 'address',
+  key: '7',
+}, {
+  title: '用户数量',
+  dataIndex: 'address',
+  key: '8',
+}, {
+  title: '商品数量',
+  dataIndex: 'address',
+  key: '9',
+}, {
+  title: '成交金额',
   dataIndex: 'address',
   key: 'address',
 }, {
@@ -32,17 +68,17 @@ const data = [{
   key: '1',
   name: '张龙',
   age: 32,
-  address: '地址',
+  address: 'Num',
 }, {
   key: '2',
   name: '赵虎',
   age: 42,
-  address: '地址',
+  address: 'Num',
 }, {
   key: '3',
   name: '李四',
   age: 32,
-  address: '地址',
+  address: 'Num',
 }];
 
 export default class extends React.Component {

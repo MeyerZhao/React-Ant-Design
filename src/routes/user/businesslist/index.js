@@ -3,6 +3,7 @@ import { Row, Col, Button, Tabs } from 'antd';
 import Table from './Table'
 import Modal from '../../../components/Modal.js'
 import Form from './Form'
+import AdvSearch from './AdvSearch'
 
 const TabPane = Tabs.TabPane;
 
@@ -22,6 +23,12 @@ export default class Users extends React.Component {
          
           <Col span={12}>
             <Button size="large" style={{float: "right"}}>高级搜索</Button>
+          </Col>
+        </Row>
+        
+        <Row style={{marginBottom:'10px'}}>
+          <Col span={24}>
+            <AdvSearch></AdvSearch>
           </Col>
         </Row>
         

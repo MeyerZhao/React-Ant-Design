@@ -1,7 +1,8 @@
 import React from 'react'
-import { Form, Input, Select, Button,} from 'antd';
+import { Form, Input, Select, Button, Cascader } from 'antd';
 import { DatePicker,Row, Col } from 'antd';
-
+import city from '../../../utils/city.js'
+import PicturesWall from '../../../components/PicturesWall.jsx'
 const InputGroup = Input.Group;
 
 const FormItem = Form.Item;
@@ -109,8 +110,8 @@ class RegistrationForm extends React.Component {
           label="商家UID"
           hasFeedback
         >
-          {getFieldDecorator('uid', {
-            rules: [{ required: true, message: '请输入商家UID!', whitespace: true }],
+          {getFieldDecorator('num', {
+            rules: [{ required: true, message: '请输入商家UID!',}],
           })(
             <Input />
           )}
@@ -165,12 +166,12 @@ class RegistrationForm extends React.Component {
           {...formItemLayout}
           label="联系电话"
         >{getFieldDecorator('uid', {
-            rules: [{ required: true, message: '请输入商家UID!', whitespace: true }],
+            rules: [{ required: true, message: '请输入联系人电话!', }],
           })(
             <InputGroup size="large">
               <Row gutter={8}>
                 <Col span={6}>
-                  <Input defaultValue="联系人名" />
+                  <Input placeholder="联系人" />
                 </Col>
                 <Col span={18}>
                   <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
@@ -178,27 +179,111 @@ class RegistrationForm extends React.Component {
               </Row>
             </InputGroup>
           )}
-         
-
-
         </FormItem>
 
 
         <FormItem
           {...formItemLayout}
-          label="登录密码"
+          label="所在地"
           hasFeedback
-        >
-          {getFieldDecorator('password', {
-            rules: [{
-              required: true, message: '请设置你的密码!',
-            }, {
-              validator: this.checkConfirm,
-            }],
+        >         
+          {getFieldDecorator('address', {
+            rules: [{ required: true, message: '请选择地址！!' }],
           })(
-            <Input type="password" />
+           <Cascader
+             size="large"
+             style={{ width: '100%' }}
+             options={city}
+             placeholder="请选择地址！"
+             changeOnSelect
+           />
           )}
         </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="详细地址"
+          hasFeedback
+        >         
+          {getFieldDecorator('fullAddress', {
+            rules: [{ required: true, message: '请输入详细地址！!' }],
+          })(
+           <Input type="textarea" rows={4} />
+          )}
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="详细地址"
+          hasFeedback
+        >         
+          {getFieldDecorator('fullAddress', {
+            rules: [{ required: true, message: '请输入详细地址！!' }],
+          })(
+           <Input type="textarea" rows={4} />
+          )}
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="商家图标"
+        >
+           <PicturesWall clssName="custom" uptxt="建议尺寸800*800" />
+        
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="商家描述"
+          hasFeedback
+        >         
+          {getFieldDecorator('describe', {
+            rules: [{ required: true, message: '请输入商家描述！!' }],
+          })(
+           <Input type="textarea" rows={4} />
+          )}
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="主体信息"
+          hasFeedback
+        >         
+          {getFieldDecorator('mainmsg', {
+            rules: [{ required: true, message: '请输入主体信息！!' }],
+          })(
+            <Input placeholder="企业名称"/>
+         
+          )}
+        </FormItem> 
+        <FormItem
+          {...formItemLayout}
+          label="信用代码"
+        >         
+          <Input placeholder="同一社会信用代码"/>
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="法人姓名"
+        >         
+          <Input placeholder="法人姓名"/>
+        </FormItem>
+          <FormItem
+          {...formItemLayout}
+          label="身份证号"
+        >         
+          <Input placeholder="身份证号"/>
+        </FormItem>
+
+      
+        <FormItem
+          {...formItemLayout}
+          label="身份证照片"
+        >         
+         <PicturesWall uptxt="身份证正面" />
+         <PicturesWall uptxt="身份证反面" />
+         <PicturesWall uptxt="营业执照" />
+        </FormItem>
+
       
         <FormItem {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit" size="large">确认提交</Button>
