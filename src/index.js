@@ -9,6 +9,10 @@ import UserList from './routes/user/userlist/';
 import BusinessType from './routes/user/businesstype/';
 import BusinessList from './routes/user/businesslist/';
 
+import GoodsType from './routes/goods/goodstype/';
+import GoodsProp from './routes/goods/goodsprop/';
+import TypeSku from './routes/goods/typesku/';
+import GoodsSku from './routes/goods/goodssku/';
 
 
 
@@ -23,10 +27,10 @@ ReactDOM.render(
 				<Route breadcrumbName="商家列表" path="businesslist" component={BusinessList}> </Route>
       </Route>
       <Route breadcrumbName="商品" path="goods">
-      	<Route breadcrumbName="商品品类" path="goodstype"> </Route>
-      	<Route breadcrumbName="商品属性" path="goodsprop"> </Route>
-      	<Route breadcrumbName="品种SKU" path="typesku"> </Route>
-      	<Route breadcrumbName="商品SKU" path="goodssku"> </Route>
+      	<Route breadcrumbName="商品品类" path="goodstype" component={GoodsType}> </Route>
+      	<Route breadcrumbName="商品属性" path="goodsprop" component={GoodsProp}> </Route>
+      	<Route breadcrumbName="品种SKU" path="typesku" component={TypeSku}> </Route>
+      	<Route breadcrumbName="商品SKU" path="goodssku" component={GoodsSku}> </Route>
       	<Route breadcrumbName="用户品种" path="usertype"> </Route>
       	<Route breadcrumbName="用户商品" path="usergoods"> </Route>
       </Route>

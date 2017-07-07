@@ -19,15 +19,15 @@ class App extends React.Component {
 	}
   render(){
     return (
-    	<Layout style={{height: '100%'}}>
-    		<Sider
-    		  collapsible
-    		  collapsed={this.state.collapsed}
-    		  onCollapse={this.onCollapse}
+    	<Layout style={{ height: '100vh' }}>
+    		<Sider 
+                collapsible
+                collapsed={this.state.collapsed}
+                onCollapse={this.onCollapse}
     		>
     		  <div className="logo" />
 
-    		  <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['/']}>
+    		  <Menu theme="dark"  mode={this.state.mode} defaultSelectedKeys={['/']}>
 
     		    <Menu.Item key="/"><Link to="/">首页</Link></Menu.Item>
 
@@ -44,12 +44,12 @@ class App extends React.Component {
     		      key="/goods"
     		      title={<span><Icon type="user" /><span className="nav-text">商品</span></span>}
     		    >
-    		      <Menu.Item key="/goods/goodstype"><Link to="/goods/goodstype">用户列表</Link></Menu.Item>
-    		      <Menu.Item key="/goods/goodsprop"><Link to="/goods/goodsprop">商家类型</Link></Menu.Item>
-    		      <Menu.Item key="/goods/typesku"><Link to="/goods/typesku">商家列表</Link></Menu.Item>
-    		      <Menu.Item key="/goods/goodssku"><Link to="/goods/goodssku">商家列表</Link></Menu.Item>
-    		      <Menu.Item key="/goods/usertype"><Link to="/goods/usertype">商家列表</Link></Menu.Item>
-    		      <Menu.Item key="/goods/usergoods"><Link to="/goods/usergoods">商家列表</Link></Menu.Item>
+    		      <Menu.Item key="/goods/goodstype"><Link to="/goods/goodstype">商品品类</Link></Menu.Item>
+    		      <Menu.Item key="/goods/goodsprop"><Link to="/goods/goodsprop">商品属性</Link></Menu.Item>
+    		      <Menu.Item key="/goods/typesku"><Link to="/goods/typesku">品种SKU</Link></Menu.Item>
+    		      <Menu.Item key="/goods/goodssku"><Link to="/goods/goodssku">商品SKU</Link></Menu.Item>
+    		      <Menu.Item key="/goods/usertype"><Link to="/goods/usertype">用户品种</Link></Menu.Item>
+    		      <Menu.Item key="/goods/usergoods"><Link to="/goods/usergoods">用户商品</Link></Menu.Item>
     		    </SubMenu>
 
     		    <SubMenu
@@ -61,7 +61,6 @@ class App extends React.Component {
     		      <Menu.Item key="/orders/infor"><Link to="/orders/infor">信息订单</Link></Menu.Item>
     		      <Menu.Item key="/orders/distribute"><Link to="/orders/distribute">配送订单</Link></Menu.Item>
     		      <Menu.Item key="/orders/refund"><Link to="/orders/refund">退款订单</Link></Menu.Item>
-
     		    </SubMenu>
 
     		    <SubMenu
@@ -75,15 +74,7 @@ class App extends React.Component {
     		      <Menu.Item key="/finance/bill_center"><Link to="/finance/bill_center">退款订单</Link></Menu.Item>
     		      <Menu.Item key="/finance/bond_manage"><Link to="/finance/bond_manage">退款订单</Link></Menu.Item>
     		      <Menu.Item key="/finance/bank_card_manage"><Link to="/finance/bank_card_manage">退款订单</Link></Menu.Item>
-
     		    </SubMenu>
-
-    		    <Menu.Item key="/finance">
-    		    	<Link to="/finance">
-    		    		<Icon type="file" />
-    		        <span className="nav-text">财务</span>
-    		    	</Link>
-    		    </Menu.Item>
 
     		    <Menu.Item key="/app">
     		    	<Link to="/app">
