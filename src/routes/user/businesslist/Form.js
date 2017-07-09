@@ -214,17 +214,6 @@ class RegistrationForm extends React.Component {
 
         <FormItem
           {...formItemLayout}
-          label="详细地址"
-          hasFeedback
-        >         
-          {getFieldDecorator('fullAddress', {
-            rules: [{ required: true, message: '请输入详细地址！!' }],
-          })(
-           <Input type="textarea" rows={4} />
-          )}
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
           label="商家图标"
         >
            <PicturesWall clssName="custom" uptxt="建议尺寸800*800" />
