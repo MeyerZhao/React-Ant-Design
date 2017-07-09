@@ -15,7 +15,21 @@ import TypeSku from './routes/goods/typesku/';
 import GoodsSku from './routes/goods/goodssku/';
 
 
+import General from './routes/orders/general/';
+import Details from './routes/orders/general/details/';
 
+import Ious from './routes/orders/ious/';
+import Infor from './routes/orders/infor/';
+import Distribute from './routes/orders/distribute/';
+import Refund from './routes/orders/refund/';
+
+import AccountList from './routes/finance/account_list/';
+import BusinessIous from './routes/finance/business_ious/';
+import WithdrawManage from './routes/finance/withdraw_manage/';
+import AccountManage from './routes/finance/account_manage/';
+import BillCenter from './routes/finance/bill_center/';
+import BondManage from './routes/finance/bond_manage/';
+import BankCardManage from './routes/finance/bank_card_manage/';
 
 
 ReactDOM.render(
@@ -35,20 +49,22 @@ ReactDOM.render(
       	<Route breadcrumbName="用户商品" path="usergoods"> </Route>
       </Route>
       <Route breadcrumbName="订单" path="orders">
-      	<Route breadcrumbName="常规订单" path="general"> </Route>
-      	<Route breadcrumbName="白条订单" path="ious"> </Route>
-      	<Route breadcrumbName="信息订单" path="infor"> </Route>
-      	<Route breadcrumbName="配送订单" path="distribute"> </Route>
-      	<Route breadcrumbName="退款订单" path="refund"> </Route>
+        <Route breadcrumbName="常规订单" path="general" component={General}> </Route>
+          <Route name="常规订单" breadcrumbName="详情"  path="general/:orderid" component={Details}> </Route>
+
+      	<Route breadcrumbName="白条订单" path="ious" component={Ious}> </Route>
+      	<Route breadcrumbName="信息订单" path="infor" component={Infor}> </Route>
+      	<Route breadcrumbName="配送订单" path="distribute" component={Distribute}> </Route>
+      	<Route breadcrumbName="退款订单" path="refund" component={Refund}> </Route>
       </Route>
       <Route breadcrumbName="财务" path="finance">
-      	<Route breadcrumbName="账户列表" path="account_list"> </Route>
-      	<Route breadcrumbName="商家白条" path="business_ious"> </Route>
-      	<Route breadcrumbName="提现管理" path="withdraw_manage"> </Route>
-      	<Route breadcrumbName="账户管理" path="account_manage"> </Route>
-      	<Route breadcrumbName="对账中心" path="bill_center"> </Route>
-      	<Route breadcrumbName="保证金管理" path="bond_manage"> </Route>
-      	<Route breadcrumbName="银行卡管理" path="bank_card_manage"> </Route>
+      	<Route breadcrumbName="账户列表" path="account_list" component={AccountList}> </Route>
+      	<Route breadcrumbName="商家白条" path="business_ious" component={BusinessIous}> </Route>
+      	<Route breadcrumbName="提现管理" path="withdraw_manage" component={WithdrawManage}> </Route>
+      	<Route breadcrumbName="账户管理" path="account_manage" component={AccountManage}> </Route>
+      	<Route breadcrumbName="对账中心" path="bill_center" component={BillCenter}> </Route>
+      	<Route breadcrumbName="保证金管理" path="bond_manage" component={BondManage}> </Route>
+      	<Route breadcrumbName="银行卡管理" path="bank_card_manage" component={BankCardManage}> </Route>
       </Route>
 
       <Route breadcrumbName="应用" path="app"> </Route>
