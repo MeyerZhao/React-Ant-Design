@@ -17,17 +17,25 @@ class App extends React.Component {
 	    mode: collapsed ? 'vertical' : 'inline',
 	  });
 	}
+    toggleCollapsed = () => {
+      this.setState({
+        collapsed: !this.state.collapsed,
+      });
+    }
   render(){
     return (
     	<Layout style={{ height: '100vh' }}>
     		<Sider 
-                collapsible
                 collapsed={this.state.collapsed}
                 onCollapse={this.onCollapse}
     		>
     		  <div className="logo" />
 
-    		  <Menu theme="dark"  mode={this.state.mode} defaultSelectedKeys={['/']}>
+    		  <Menu 
+                theme="dark"
+                mode={this.state.mode} 
+                inlineCollapsed={this.state.collapsed}
+            >
 
     		    <Menu.Item key="/"><Link to="/">首页</Link></Menu.Item>
 
@@ -106,7 +114,7 @@ class App extends React.Component {
     		    <Icon
     		      className="trigger"
     		      type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-    		      onClick={this.onCollapse}
+                  onClick={this.toggleCollapsed}
     		    />
     		  </Header>
     		  <Content style={{ margin: '0 16px' }}>
