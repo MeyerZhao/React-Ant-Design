@@ -1,37 +1,63 @@
 import React from 'react'
 import { Table, Row, Col } from 'antd';
-import Modal from '../../../components/Modal.js'
-import Form from './Form'
+import { Input } from 'antd';
+const Search = Input.Search;
+
 
 const columns = [{
-  title: '图片', dataIndex: 'name', key: 'name', render: text => <a href="">{text}</a>, }, {
-  title: '品种名称', dataIndex: 'address', key: '7', }, {
-  title: 'SKU编号', dataIndex: 'address', key: '7', }, {
-  title: '属性值', dataIndex: 'address', key: '7', }, {
-  title: '所属品类', dataIndex: 'address', key: '8', }, {
-  title: '排序', dataIndex: 'address', key: '9', }, {
-  title: '更新时间', dataIndex: 'address', key: 'address', }, {
-  title: '操作', key: 'action', render: (text, record) => (
+  title: '用户UID', dataIndex: 'item1', key: 'item1', }, {
+  title: '注册手机', dataIndex: 'item2', key: 'item2', }, {
+  title: '用户类型', dataIndex: 'item3', key: 'item3', }, {
+  title: '商家名称', dataIndex: 'item4', key: 'item4', }, {
+  title: '注册时间', dataIndex: 'item5', key: 'item5', }, {
+  title: '可用余额', dataIndex: 'item6', key: 'item6', }, {
+  title: '冻结金额', dataIndex: 'item7', key: 'item7', }, {
+  title: '保证金额', dataIndex: 'item8', key: 'item8', }, {
+  title: '白条额度', dataIndex: 'item9', key: 'item9', }, {
+  title: '白条余额', dataIndex: 'item10', key: 'item10', }, {
+  title: '操作', dataIndex: 'action', key: 'action', render: (text, record) => (
     <span>
-      <a href="">编辑</a>
+      <a href={text.financialdetails}>财务明细</a>
       <span className="ant-divider" />
-      <a href="">删除</a>
+      <a href={text.manualrecharge}>人工充值</a>
     </span>
   ),
+}];
+
+const data = [{
+  key: '1',
+  item1: '1513213',
+  item2: 'John Brown',
+  item3: 'John Brown',
+  item4: 'John Brown',
+  item5: 'John Brown',
+  item6: 'John Brown',
+  item7: 'John Brown',
+  item8: 'John Brown',
+  item9: 'John Brown',
+  item10: 'John Brown',
+  action: {
+    financialdetails:'/finance/account_list/financialdetails/456798',
+    manualrecharge:'/finance/account_list/manualrecharge/687456'
+  }
 }];
 
 export default class Users extends React.Component {
   render(){
     return (
-    	<div>
+      <div>
+
         <Row style={{marginBottom:'10px'}}>
           <Col span={12}>
-            <Modal title="账户列表"> <Form /> </Modal>
+            <Search
+              placeholder="输入搜索关键字"
+              style={{ width: 200 }}
+              size="large"
+            />
           </Col>
         </Row>
-        <Table columns={columns}  />
-
-    	</div>
+        <Table columns={columns} dataSource={data}/>
+      </div>
     )
   }
 }

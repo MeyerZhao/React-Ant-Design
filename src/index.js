@@ -32,6 +32,8 @@ import Refund from './routes/orders/refund/';
 
 
 import AccountList from './routes/finance/account_list/';
+    import FinancialDetails from './routes/finance/account_list/financialdetails/';
+    import ManualRecharge from './routes/finance/account_list/manualrecharge/';
 import BusinessIous from './routes/finance/business_ious/';
 import WithdrawManage from './routes/finance/withdraw_manage/';
 import AccountManage from './routes/finance/account_manage/';
@@ -80,6 +82,8 @@ ReactDOM.render(
       </Route>
       <Route breadcrumbName="财务" path="finance">
       	<Route breadcrumbName="账户列表" path="account_list" component={AccountList}> </Route>
+          <Route breadcrumbName="财务明细"  path="account_list/financialdetails/:id" component={FinancialDetails}> </Route>
+          <Route breadcrumbName="人工充值"  path="account_list/manualrecharge/:id" component={ManualRecharge}> </Route>
       	<Route breadcrumbName="商家白条" path="business_ious" component={BusinessIous}> </Route>
       	<Route breadcrumbName="提现管理" path="withdraw_manage" component={WithdrawManage}> </Route>
       	<Route breadcrumbName="账户管理" path="account_manage" component={AccountManage}> </Route>
