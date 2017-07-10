@@ -4,13 +4,13 @@ import Modal from '../../../components/Modal.js'
 import Form from './Form'
 
 const columns = [{
-  title: '图片', dataIndex: 'name', key: 'name', render: text => <a href="">{text}</a>, }, {
-  title: '品种名称', dataIndex: 'address', key: '7', }, {
-  title: 'SKU编号', dataIndex: 'address', key: '7', }, {
-  title: '属性值', dataIndex: 'address', key: '7', }, {
-  title: '所属品类', dataIndex: 'address', key: '8', }, {
-  title: '排序', dataIndex: 'address', key: '9', }, {
-  title: '更新时间', dataIndex: 'address', key: 'address', }, {
+  title: '订单编号', dataIndex: 'item1', key: 'item1', render: text => <a href={text}>{text}</a>, }, {
+  title: '下单方名称', dataIndex: 'item2', key: 'item2', }, {
+  title: '配送时间', dataIndex: 'item3', key: 'item3', }, {
+  title: '配送地区', dataIndex: 'item4', key: 'item4', }, {
+  title: '接单方', dataIndex: 'item5', key: 'item5', }, {
+  title: '订单状态', dataIndex: 'item6', key: 'item6', }, {
+  title: '订单金额', dataIndex: 'item7', key: 'item7', }, {
   title: '操作', key: 'action', render: (text, record) => (
     <span>
       <a href="">编辑</a>
@@ -20,18 +20,38 @@ const columns = [{
   ),
 }];
 
+const data = [{
+  key: '1',
+  item1: '/orders/general/517052012334556',
+  item2: 'John Brown',
+  item3: 'John Brown',
+  item4: 'John Brown',
+  item5: 'John Brown',
+  item6: 'John Brown',
+  item7: 'John Brown',
+},{
+  key: '2',
+  item1: '/orders/general/zhaom',
+  item2: 'John Brown',
+  item3: 'John Brown',
+  item4: 'John Brown',
+  item5: 'John Brown',
+  item6: 'John Brown',
+  item7: 'John Brown',
+}];
+
 export default class Users extends React.Component {
   render(){
     return (
-    	<div>
+      <div>
+
         <Row style={{marginBottom:'10px'}}>
           <Col span={12}>
-            <Modal title="配送订单"> <Form /> </Modal>
+            <Modal title="常规订单"> <Form /> </Modal>
           </Col>
         </Row>
-        <Table columns={columns}  />
-
-    	</div>
+        <Table columns={columns} dataSource={data}/>
+      </div>
     )
   }
 }

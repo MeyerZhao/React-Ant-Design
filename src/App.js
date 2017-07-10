@@ -75,13 +75,13 @@ class App extends React.Component {
     		      key="/finance"
     		      title={<span><Icon type="user" /><span className="nav-text">财务</span></span>}
     		    >
-    		      <Menu.Item key="/finance/account_list"><Link to="/finance/account_list">常规订单</Link></Menu.Item>
-    		      <Menu.Item key="/finance/business_ious"><Link to="/finance/business_ious">白条订单</Link></Menu.Item>
-    		      <Menu.Item key="/finance/withdraw_manage"><Link to="/finance/withdraw_manage">信息订单</Link></Menu.Item>
-    		      <Menu.Item key="/finance/account_manage"><Link to="/finance/account_manage">配送订单</Link></Menu.Item>
-    		      <Menu.Item key="/finance/bill_center"><Link to="/finance/bill_center">退款订单</Link></Menu.Item>
-    		      <Menu.Item key="/finance/bond_manage"><Link to="/finance/bond_manage">退款订单</Link></Menu.Item>
-    		      <Menu.Item key="/finance/bank_card_manage"><Link to="/finance/bank_card_manage">退款订单</Link></Menu.Item>
+    		      <Menu.Item key="/finance/account_list"><Link to="/finance/account_list">账户列表</Link></Menu.Item>
+    		      <Menu.Item key="/finance/business_ious"><Link to="/finance/business_ious">商家白条</Link></Menu.Item>
+    		      <Menu.Item key="/finance/withdraw_manage"><Link to="/finance/withdraw_manage">提现管理</Link></Menu.Item>
+    		      <Menu.Item key="/finance/account_manage"><Link to="/finance/account_manage">账户管理</Link></Menu.Item>
+    		      <Menu.Item key="/finance/bill_center"><Link to="/finance/bill_center">对账中心</Link></Menu.Item>
+    		      <Menu.Item key="/finance/bond_manage"><Link to="/finance/bond_manage">保证金管理</Link></Menu.Item>
+    		      <Menu.Item key="/finance/bank_card_manage"><Link to="/finance/bank_card_manage">银行卡管理</Link></Menu.Item>
     		    </SubMenu>
 
     		    <Menu.Item key="/app">
@@ -119,7 +119,7 @@ class App extends React.Component {
     		  </Header>
     		  <Content style={{ margin: '0 16px' }}>
     		    <Breadcrumb separator=">" style={{ margin: '12px 0' }} routes={this.props.routes} params={this.props.params} />
-    		    <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+    		    <div style={{ padding: 24, background: '#fff', minHeight: 360, position:"relative"}}>
     		      {this.props.children}
     		    </div>
     		  </Content>

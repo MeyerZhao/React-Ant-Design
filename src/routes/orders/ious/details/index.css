@@ -1,0 +1,6 @@
+.zhaotable td:first-child {
+    background: #fcfcfc;
+    font-weight: 500;
+    width: 20%;
+    font-family: Lucida Console,Consolas,Menlo,Courier,monospace;
+}
