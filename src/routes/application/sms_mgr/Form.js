@@ -1,8 +1,14 @@
 import React from 'react'
-import { Form, Input, Select, Button,} from 'antd';
-const FormItem = Form.Item;
-const Option = Select.Option;
+import { Form, Input, Button,} from 'antd';
+import { Select } from 'antd';
+import { Radio } from 'antd';
 
+
+const RadioGroup = Radio.Group;
+const Option = Select.Option;
+const FormItem = Form.Item;
+
+const plainOptions = ['文字', '语音'];
 
 
 
@@ -10,6 +16,8 @@ class RegistrationForm extends React.Component {
   state = {
     confirmDirty: false,
     autoCompleteResult: [],
+     value1: '文字',
+
   };
   handleSubmit = (e) => {
     e.preventDefault();
@@ -49,8 +57,18 @@ class RegistrationForm extends React.Component {
     this.setState({ autoCompleteResult });
   }
 
+
+
+  onChange1 = (e) => {
+     console.log('radio1 checked', e.target.value);
+     this.setState({
+       value1: e.target.value,
+     });
+   }
+
+
   render() {
-    const { getFieldDecorator } = this.props.form;
+
 
     const formItemLayout = {
       labelCol: {
@@ -74,58 +92,38 @@ class RegistrationForm extends React.Component {
         },
       },
     };
-    const prefixSelector = getFieldDecorator('prefix', {
-      initialValue: '86',
-    })(
-      <Select style={{ width: 60 }}>
+    const prefixSelector =(
+      <Select defaultValue="86" style={{ width: 60 }}>
         <Option value="86">+86</Option>
         <Option value="87">+87</Option>
       </Select>
-    );
+      )
+
 
 
 
     return (
       <Form onSubmit={this.handleSubmit}>
 
-        <FormItem
-          {...formItemLayout}
-          label="电话"
-        >
-          {getFieldDecorator('phone', {
-            rules: [{ required: true, message: '请输入你的电话!' }],
-          })(
-            <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
-          )}
+        <FormItem {...formItemLayout} label="注册手机">
+          <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+        </FormItem>
+         <FormItem {...formItemLayout} label="短信类型">
+           <RadioGroup options={plainOptions} onChange={this.onChange1} value={this.state.value1} />
+        </FormItem>
+         <FormItem {...formItemLayout} label="短信数量">
+          <Input />
+        </FormItem>
+         <FormItem {...formItemLayout} label="购买金额">
+          <Input />
+        </FormItem>
+         <FormItem {...formItemLayout} label="短信签名">
+          <Input />
         </FormItem>
 
-        <FormItem
-          {...formItemLayout}
-          label="用户昵称"
-          hasFeedback
-        >
-          {getFieldDecorator('nickname', {
-            rules: [{ required: true, message: '请输入昵称!', whitespace: true }],
-          })(
-            <Input />
-          )}
-        </FormItem>
 
-        <FormItem
-          {...formItemLayout}
-          label="登录密码"
-          hasFeedback
-        >
-          {getFieldDecorator('password', {
-            rules: [{
-              required: true, message: '请设置你的密码!',
-            }, {
-              validator: this.checkConfirm,
-            }],
-          })(
-            <Input type="password" />
-          )}
-        </FormItem>
+
+
       
         <FormItem {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit" size="large">确认提交</Button>

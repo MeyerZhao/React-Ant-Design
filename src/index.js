@@ -40,6 +40,7 @@ import BondManage from './routes/finance/bond_manage/';
 import BankCardManage from './routes/finance/bank_card_manage/';
 
 
+import SMSMgr from './routes/application/sms_mgr/';
 
 import AdminAddress from './routes/admin_address/';
     import AdminAddressDetails from './routes/admin_address/details/';
@@ -87,7 +88,10 @@ ReactDOM.render(
       	<Route breadcrumbName="银行卡管理" path="bank_card_manage" component={BankCardManage}> </Route>
       </Route>
 
-      <Route breadcrumbName="应用" path="app"> </Route>
+      <Route breadcrumbName="应用" path="app"> 
+        <Route breadcrumbName="短信管理" path="sms_mgr" component={SMSMgr}> </Route>
+      </Route>
+
       <Route breadcrumbName="数据分析" path="data_analysis"> </Route>
       <Route breadcrumbName="管理员通讯录" path="admin_address" component={AdminAddress}> </Route>
         <Route breadcrumbName="管理员通讯录编辑"  path="admin_address/:id" component={AdminAddressDetails}> </Route>

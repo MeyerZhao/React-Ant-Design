@@ -37,7 +37,11 @@ class App extends React.Component {
                 inlineCollapsed={this.state.collapsed}
             >
 
-    		    <Menu.Item key="/"><Link to="/">首页</Link></Menu.Item>
+    		    <Menu.Item key="/">
+                    <Link to="/">
+                        <Icon type="home" /> <span className="nav-text">首页</span>
+                    </Link>
+                </Menu.Item>
 
     		    <SubMenu
     		      key="/user"
@@ -50,7 +54,7 @@ class App extends React.Component {
 
     		    <SubMenu
     		      key="/goods"
-    		      title={<span><Icon type="user" /><span className="nav-text">商品</span></span>}
+    		      title={<span><Icon type="gift" /><span className="nav-text">商品</span></span>}
     		    >
     		      <Menu.Item key="/goods/goodstype"><Link to="/goods/goodstype">商品品类</Link></Menu.Item>
     		      <Menu.Item key="/goods/goodsprop"><Link to="/goods/goodsprop">商品属性</Link></Menu.Item>
@@ -62,7 +66,7 @@ class App extends React.Component {
 
     		    <SubMenu
     		      key="/orders"
-    		      title={<span><Icon type="user" /><span className="nav-text">订单</span></span>}
+    		      title={<span><Icon type="exception" /><span className="nav-text">订单</span></span>}
     		    >
     		      <Menu.Item key="/orders/general"><Link to="/orders/general">常规订单</Link></Menu.Item>
     		      <Menu.Item key="/orders/ious"><Link to="/orders/ious">白条订单</Link></Menu.Item>
@@ -73,7 +77,7 @@ class App extends React.Component {
 
     		    <SubMenu
     		      key="/finance"
-    		      title={<span><Icon type="user" /><span className="nav-text">财务</span></span>}
+    		      title={<span><Icon type="bank" /><span className="nav-text">财务</span></span>}
     		    >
     		      <Menu.Item key="/finance/account_list"><Link to="/finance/account_list">账户列表</Link></Menu.Item>
     		      <Menu.Item key="/finance/business_ious"><Link to="/finance/business_ious">商家白条</Link></Menu.Item>
@@ -84,23 +88,24 @@ class App extends React.Component {
     		      <Menu.Item key="/finance/bank_card_manage"><Link to="/finance/bank_card_manage">银行卡管理</Link></Menu.Item>
     		    </SubMenu>
 
-    		    <Menu.Item key="/app">
-    		    	<Link to="/app">
-    		    		<Icon type="file" />
-    		        <span className="nav-text">应用</span>
-    		    	</Link>
-    		    </Menu.Item>
+                <SubMenu
+                  key="/app"
+                  title={<span><Icon type="appstore-o" /><span className="nav-text">应用</span></span>}
+                >
+                  <Menu.Item key="/app/sms_mgr"><Link to="/app/sms_mgr">短信管理</Link></Menu.Item>
+                 
+                </SubMenu>
 
     		    <Menu.Item key="/data_analysis">
     		    	<Link to="/data_analysis">
-    		    		<Icon type="file" />
+    		    		<Icon type="area-chart" />
     		        <span className="nav-text">数据分析</span>
     		    	</Link>
     		    </Menu.Item>
 
     		    <Menu.Item key="/admin_address">
     		    	<Link to="/admin_address">
-    		    		<Icon type="file" />
+    		    		<Icon type="contacts" />
     		        <span className="nav-text">管理员通讯录</span>
     		    	</Link>
     		    </Menu.Item>
