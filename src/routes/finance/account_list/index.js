@@ -50,7 +50,7 @@ export default class Users extends React.Component {
         <Row style={{marginBottom:'10px'}}>
           <Col span={12}>
             <Search
-              placeholder="输入搜索关键字"
+              placeholder="输入搜索关键字 测试修改"
               style={{ width: 200 }}
               size="large"
             />
