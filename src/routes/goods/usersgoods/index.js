@@ -1,5 +1,9 @@
 import React from 'react'
-import { Table } from 'antd';
+import { Row, Col, Button, Table } from 'antd';
+// import Modal from '../../../components/Modal.js'
+// import Form from './Form'
+import AdvSearch from './AdvSearch'
+
 
 const columns = [{
   title: '商家UID', dataIndex: 'name', key: 'name', render: text => <a href="">{text}</a>, }, {
@@ -23,25 +27,33 @@ const columns = [{
   ),
 }];
 
-const data = [{
-  key: '1',
-  name: '张龙',
-  age: 32,
-  address: 'Num',
-}, {
-  key: '2',
-  name: '赵虎',
-  age: 42,
-  address: 'Num',
-}, {
-  key: '3',
-  name: '李四',
-  age: 32,
-  address: 'Num',
-}];
 
-export default class extends React.Component {
+export default class Users extends React.Component {
   render(){
-    return <Table columns={columns} dataSource={data} />
+    return (
+    	<div>
+
+        <Row style={{marginBottom:'10px'}}>
+          <Col span={12}>
+         {/*   <Modal title="用户商品"> <Form /> </Modal>*/}
+          </Col>
+         
+          <Col span={12}>
+            <Button size="large" style={{float: "right"}}>高级搜索</Button>
+          </Col>
+        </Row>
+        
+        <Row style={{marginBottom:'10px'}}>
+          <Col span={24}>
+            <AdvSearch></AdvSearch>
+          </Col>
+        </Row>
+
+        <Table columns={columns} />
+        
+
+    	</div>
+    )
   }
 }
+

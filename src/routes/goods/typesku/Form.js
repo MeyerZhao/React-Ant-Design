@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, Button,} from 'antd';
+import { Form, Input, Button, InputNumber} from 'antd';
 import { Select } from 'antd';
 import { Radio } from 'antd';
 import { Row, Col } from 'antd';
@@ -58,8 +58,6 @@ class RegistrationForm extends React.Component {
     this.setState({ autoCompleteResult });
   }
 
-
-
   onChange1 = (e) => {
      console.log('radio1 checked', e.target.value);
      this.setState({
@@ -78,6 +76,7 @@ class RegistrationForm extends React.Component {
        value3: e.target.value,
      });
    }
+
 
   render() {
 
@@ -124,6 +123,17 @@ class RegistrationForm extends React.Component {
           <Input />
         </FormItem>
 
+        <FormItem 
+          {...formItemLayout} 
+          label="单位数量" 
+        >
+          <InputNumber min={1} max={200} defaultValue={3} />
+          <Select defaultValue=".com" style={{ width: 70 }}>
+            <Option value=".com">枝</Option>
+          </Select> 
+         
+        </FormItem>
+
         <FormItem {...formItemLayout} label="所属品类">
           <Select placeholder="所属品类">
                <Option value="1">顶级品类</Option>
@@ -133,19 +143,6 @@ class RegistrationForm extends React.Component {
         </FormItem>
 
 
-        <FormItem 
-          {...formItemLayout} 
-          label="SKU编号" 
-        >
-          <Row gutter={8}>
-            <Col span={16}>           
-                <Input />              
-            </Col>
-            <Col span={8}>
-              <Button style={{width: "100%"}}>生成SKU</Button>
-            </Col>
-          </Row>
-        </FormItem>
 
         <FormItem 
           {...formItemLayout} 
@@ -179,6 +176,19 @@ class RegistrationForm extends React.Component {
         </FormItem>
 
 
+        <FormItem 
+          {...formItemLayout} 
+          label="SKU编号" 
+        >
+          <Row gutter={8}>
+            <Col span={16}>           
+                <Input />              
+            </Col>
+            <Col span={8}>
+              <Button style={{width: "100%"}}>生成SKU</Button>
+            </Col>
+          </Row>
+        </FormItem>
       
         <FormItem {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit" size="large">确认提交</Button>

@@ -1,28 +1,24 @@
 import React from 'react'
 import { Form, Input, Button,} from 'antd';
 import { Select } from 'antd';
+import { Radio } from 'antd';
 import { Row, Col } from 'antd';
-import PicturesWall from '../../../components/PicturesWall.jsx'
-import { Table } from 'antd';
-
-const columns = [{
-  title: '序号', dataIndex: 'name', }, {
-  title: '品种SKU', dataIndex: 'age', }, {
-  title: '属性值', dataIndex: 'age', }, {
-  title: '所属品类', dataIndex: 'age', }, {
-  title: '数量', dataIndex: 'address',
-}];
-
-
+import PicturesWall2 from '../../../../components/PicturesWall2.jsx'
+const RadioGroup = Radio.Group;
 const Option = Select.Option;
 const FormItem = Form.Item;
 
-
+const plainOptions = ['红色', '白色', '绿色'];
+const plainOptions2 = ['A级', 'B级', 'C级'];
+const plainOptions3 = ['昆明', '广西', '本地'];
 
 class RegistrationForm extends React.Component {
   state = {
     confirmDirty: false,
     autoCompleteResult: [],
+     value1: '红色',
+     value2: 'A级',
+     value3: '昆明',
   };
   handleSubmit = (e) => {
     e.preventDefault();
@@ -64,6 +60,24 @@ class RegistrationForm extends React.Component {
 
 
 
+  onChange1 = (e) => {
+     console.log('radio1 checked', e.target.value);
+     this.setState({
+       value1: e.target.value,
+     });
+   }
+   onChange2 = (e) => {
+     console.log('radio1 checked', e.target.value);
+     this.setState({
+       value2: e.target.value,
+     });
+   }
+   onChange3 = (e) => {
+     console.log('radio1 checked', e.target.value);
+     this.setState({
+       value3: e.target.value,
+     });
+   }
 
   render() {
 
@@ -71,11 +85,11 @@ class RegistrationForm extends React.Component {
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
-        sm: { span: 4 },
+        sm: { span: 6 },
       },
       wrapperCol: {
         xs: { span: 24 },
-        sm: { span: 18 },
+        sm: { span: 14 },
       },
     };
     const tailFormItemLayout = {
@@ -98,7 +112,14 @@ class RegistrationForm extends React.Component {
 
         <FormItem 
           {...formItemLayout} 
-          label="商品名称" 
+          label="品种名称" 
+        >
+          <Input />
+        </FormItem>
+
+        <FormItem 
+          {...formItemLayout} 
+          label="品种别名" 
         >
           <Input />
         </FormItem>
@@ -110,6 +131,7 @@ class RegistrationForm extends React.Component {
                <Option value="3">顶级品类2</Option>
              </Select>
         </FormItem>
+
 
         <FormItem 
           {...formItemLayout} 
@@ -127,49 +149,40 @@ class RegistrationForm extends React.Component {
 
         <FormItem 
           {...formItemLayout} 
-          label="渠道编号" 
-        > 
-          <Input />
-        </FormItem>
-
-        <FormItem 
-          {...formItemLayout} 
           label="图片" 
         >
-          <Row gutter={8}>
-            <Col span={8}>           
-              <PicturesWall style={{float:'left'}} clssName="custom" uptxt="顶部平铺" />
-            </Col>
-            <Col span={8}>
-              <PicturesWall style={{float:'left'}} clssName="custom" uptxt="侧面直立" />
-            </Col>
-            <Col span={8}>
-              <PicturesWall style={{float:'left'}} clssName="custom" uptxt="细节图" />
-            </Col>
-          </Row>
+          <PicturesWall2 clssName="custom" uptxt="上传图片" />
+        </FormItem>
+
+
+
+
+        <FormItem 
+          {...formItemLayout} 
+          label="颜色" 
+        >
+          <RadioGroup options={plainOptions} onChange={this.onChange1} value={this.state.value1} />
         </FormItem>
 
         <FormItem 
           {...formItemLayout} 
-          label="商品明细" 
+          label="等级" 
         >
-          <Button style={{marginBottom:"10px"}}>添加品种SKU</Button>
-          <Table columns={columns} size="small"/>
+         <RadioGroup options={plainOptions2} onChange={this.onChange2} value={this.state.value2} />
         </FormItem>
 
-        <FormItem
-          {...formItemLayout}
-          label="商品描述"
+        <FormItem 
+          {...formItemLayout} 
+          label="产地" 
         >
-           <Input type="textarea" rows={4} />
-        
+         <RadioGroup options={plainOptions3} onChange={this.onChange3} value={this.state.value3} />
         </FormItem>
+
 
       
         <FormItem {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit" size="large">确认提交</Button>
         </FormItem>
-
       </Form>
     );
   }

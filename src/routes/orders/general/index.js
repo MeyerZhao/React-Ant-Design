@@ -1,7 +1,8 @@
 import React from 'react'
-import { Table, Row, Col } from 'antd';
-import Modal from '../../../components/Modal.js'
-import Form from './Form'
+import { Table, Row, Col, Button } from 'antd';
+import AdvSearch from './AdvSearch'
+import { Input } from 'antd';
+const Search = Input.Search;
 
 const columns = [{
   title: '订单编号', dataIndex: 'item1', key: 'item1', render: text => <a href={text}>{text}</a>, }, {
@@ -22,7 +23,7 @@ const columns = [{
 
 const data = [{
   key: '1',
-  item1: '/orders/general/517052012334556',
+  item1: '#/orders/general/517052012334556',
   item2: 'John Brown',
   item3: 'John Brown',
   item4: 'John Brown',
@@ -31,7 +32,7 @@ const data = [{
   item7: 'John Brown',
 },{
   key: '2',
-  item1: '/orders/general/zhaom',
+  item1: '#/orders/general/zhaom',
   item2: 'John Brown',
   item3: 'John Brown',
   item4: 'John Brown',
@@ -46,10 +47,24 @@ export default class Users extends React.Component {
     	<div>
 
         <Row style={{marginBottom:'10px'}}>
-          <Col span={12}>
-            <Modal title="常规订单"> <Form /> </Modal>
+          
+          <Col span={12} offset={12}>
+            <Button size="large" style={{float: "right"}}>高级搜索</Button>
+            <Search 
+               size="large"
+               placeholder="输入关键字"
+               style={{ width: 200, float: "right",  marginRight:"10px" }}
+        
+             />
           </Col>
         </Row>
+
+        <Row style={{marginBottom:'10px'}}>
+          <Col span={24}>
+            <AdvSearch></AdvSearch>
+          </Col>
+        </Row>
+        
         <Table columns={columns} dataSource={data}/>
     	</div>
     )

@@ -1,8 +1,9 @@
 import React from 'react'
-import { Form, Input, Select, Button,} from 'antd';
-const FormItem = Form.Item;
-const Option = Select.Option;
+import { Form, Input, Button,} from 'antd';
+import { Select } from 'antd';
 
+const Option = Select.Option;
+const FormItem = Form.Item;
 
 
 
@@ -10,7 +11,7 @@ class RegistrationForm extends React.Component {
   state = {
     confirmDirty: false,
     autoCompleteResult: [],
-  };
+ };
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
@@ -23,14 +24,7 @@ class RegistrationForm extends React.Component {
     const value = e.target.value;
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   }
-  checkPassword = (rule, value, callback) => {
-    const form = this.props.form;
-    if (value && value !== form.getFieldValue('password')) {
-      callback('2次输入密码不一致!');
-    } else {
-      callback();
-    }
-  }
+
   checkConfirm = (rule, value, callback) => {
     const form = this.props.form;
     if (value && this.state.confirmDirty) {
@@ -50,8 +44,6 @@ class RegistrationForm extends React.Component {
   }
 
   render() {
-    const { getFieldDecorator } = this.props.form;
-
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
@@ -74,58 +66,44 @@ class RegistrationForm extends React.Component {
         },
       },
     };
-    const prefixSelector = getFieldDecorator('prefix', {
-      initialValue: '86',
-    })(
-      <Select style={{ width: 60 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-    );
-
-
 
     return (
       <Form onSubmit={this.handleSubmit}>
 
-        <FormItem
-          {...formItemLayout}
-          label="注册手机"
-        >
-          {getFieldDecorator('phone', {
-            rules: [{ required: true, message: '请输入你的电话!' }],
-          })(
-            <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
-          )}
+        <FormItem {...formItemLayout} label="所属品类">
+          <Select placeholder="所属品类">
+               <Option value="1">切花</Option>
+               <Option value="2">切花1</Option>
+               <Option value="3">切花2</Option>
+             </Select>
         </FormItem>
 
-        <FormItem
-          {...formItemLayout}
-          label="用户昵称"
-          hasFeedback
-        >
-          {getFieldDecorator('nickname', {
-            rules: [{ required: false, message: '请输入昵称!', whitespace: true }],
-          })(
-            <Input />
-          )}
+        <FormItem {...formItemLayout} label="所属属性">
+          <Select placeholder="所属属性">
+               <Option value="1">颜色1</Option>
+               <Option value="2">颜色2</Option>
+               <Option value="3">颜色3</Option>
+             </Select>
         </FormItem>
 
-        <FormItem
-          {...formItemLayout}
-          label="登录密码"
-          hasFeedback
+        <FormItem 
+          {...formItemLayout} 
+          label="属性值" 
         >
-          {getFieldDecorator('password', {
-            rules: [{
-              required: true, message: '请设置你的密码!',
-            }, {
-              validator: this.checkConfirm,
-            }],
-          })(
-            <Input type="password" />
-          )}
+          <Input />
         </FormItem>
+
+        <FormItem 
+          {...formItemLayout} 
+          label="属性排序" 
+          extra="默认值为100，数字越大越靠前"
+        >
+          <Input />
+        </FormItem>
+
+
+
+
       
         <FormItem {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit" size="large">确认提交</Button>

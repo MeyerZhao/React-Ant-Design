@@ -1,48 +1,40 @@
 import React from 'react'
 import { Table, Row, Col, Button } from 'antd';
+import PicturesWall2 from '../../../../components/PicturesWall2.jsx'
 
 
 const columns = [{
-  title: '订单编号', dataIndex: 'item1', key: 'item1', render: text => <a href={text}>{text}</a>, }, {
-  title: '下单方名称', dataIndex: 'item2', key: 'item2', }, {
-  title: '配送时间', dataIndex: 'item3', key: 'item3', }, {
-  title: '配送地区', dataIndex: 'item4', key: 'item4', }, {
-  title: '接单方', dataIndex: 'item5', key: 'item5', }, {
-  title: '订单状态', dataIndex: 'item6', key: 'item6', }, {
-  title: '订单金额', dataIndex: 'item7', key: 'item7', }, {
-  title: '操作', key: 'action', render: (text, record) => (
-    <span>
-      <a href="">编辑</a>
-      <span className="ant-divider" />
-      <a href="">删除</a>
-    </span>
-  ),
-}];
+  title: '下单时间', dataIndex: 'item1', key: 'item1', render: text => <a href={text}>{text}</a>, }, {
+  title: '支付时间', dataIndex: 'item2', key: 'item2', }, {
+  title: '确认时间', dataIndex: 'item3', key: 'item3', }, {
+  title: '签收时间', dataIndex: 'item4', key: 'item4', }, {
+  title: '转账时间', dataIndex: 'item5', key: 'item5', }, {
+  title: '退款时间', dataIndex: 'item6', key: 'item6', }];
 
-const data = [{
-  key: '1',
-  item1: '/orders/general/517052012334556',
-  item2: 'John Brown',
-  item3: 'John Brown',
-  item4: 'John Brown',
-  item5: 'John Brown',
-  item6: 'John Brown',
-  item7: 'John Brown',
-},{
-  key: '2',
-  item1: '/orders/general/zhaom',
-  item2: 'John Brown',
-  item3: 'John Brown',
-  item4: 'John Brown',
-  item5: 'John Brown',
-  item6: 'John Brown',
-  item7: 'John Brown',
-}];
+
+const business = [{
+  title: '交易双方', dataIndex: 'item1', key: 'item1', }, {
+  title: 'UID', dataIndex: 'item2', key: 'item2', }, {
+  title: '注册手机', dataIndex: 'item3', key: 'item3', }, {
+  title: '昵称/店铺名', dataIndex: 'item4', key: 'item4', }, {
+  title: '所在地区', dataIndex: 'item5', key: 'item5', }, {
+  title: '注册时间', dataIndex: 'item6', key: 'item6', }];
+
+const distribution = [{
+title: '配送/发货时间', dataIndex: 'item1', key: 'item1', }, {
+title: '收货人姓名', dataIndex: 'item2', key: 'item2', }, {
+title: '联系方式', dataIndex: 'item3', key: 'item3', }, {
+title: '详细地址', dataIndex: 'item4', key: 'item4', }];
+
+
+
+
+
+
 
 const columns2 = [{
   title: '订单编号', width:120,  dataIndex: 'item1', key: 'item1'}, {
-  title: '下单方名称', dataIndex: 'item2', key: 'item2', }
-];
+  title: '下单方名称', dataIndex: 'item2', key: 'item2', }];
 
 const data2 = [{
   key: '1',
@@ -51,7 +43,15 @@ const data2 = [{
 },{
   key: '2',
   item1: '接单方备注',
-  item3: '请按时送达',
+  item2: '请按时送达',
+},{
+  key: '3',
+  item1: '贺卡信息',
+  item2: '贺卡类型 + 内容 （主要为B2C/转单订单）',
+},{
+  key: '4',
+  item1: '订单图片',
+  item2: '贺卡类型 + 内容 （主要为B2C/转单订单）',
 }];
 
 export default class Users extends React.Component {
@@ -80,11 +80,11 @@ export default class Users extends React.Component {
 	    	</div>
 	    	<div style={{paddingLeft:"40px"}}>
 	    		<h4 style={{borderBottom: "2px solid #ddd", paddingBottom: "10px"}} >基础信息</h4>
-	    		<Table columns={columns} dataSource={data} pagination={false} style={{marginBottom:"30px"}}/>
+	    		<Table columns={columns} pagination={false} style={{marginBottom:"30px"}}/>
 	    		<h4 style={{borderBottom: "2px solid #ddd", paddingBottom: "10px"}} >交易双方</h4>
-	    		<Table columns={columns} dataSource={data} pagination={false} style={{marginBottom:"30px"}}/>
+	    		<Table columns={business} pagination={false} style={{marginBottom:"30px"}}/>
 	    		<h4 style={{borderBottom: "2px solid #ddd", paddingBottom: "10px"}} >配送信息</h4>
-	    		<Table columns={columns} dataSource={data} pagination={false} style={{marginBottom:"30px"}}/>
+	    		<Table columns={distribution} pagination={false} style={{marginBottom:"30px"}}/>
 
 	    		<h4 style={{borderBottom: "2px solid #ddd", paddingBottom: "10px"}} >其他信息</h4>
 	    		<Table
@@ -96,7 +96,7 @@ export default class Users extends React.Component {
 	    		/>
 
 	    		<h4 style={{marginBottom:"10px"}} >商品信息</h4>
-	    		<Table columns={columns} dataSource={data} pagination={false} style={{marginBottom:"10px"}}/>
+	    		<Table columns={columns} pagination={false} style={{marginBottom:"10px"}}/>
 	    		<div style={{textAlign:"right", fontSize:"18px", fontWeight:"bold"}}>
 		    		订单总金额:<span style={{color:"#e55850"}}>￥90.00</span>
 	    		</div >

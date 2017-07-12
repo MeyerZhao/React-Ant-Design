@@ -12,7 +12,7 @@ export default class Users extends React.Component {
 
         <Row style={{marginBottom:'10px'}}>
           <Col span={12}>
-            <Modal title="添加品类"> <Form /> </Modal>
+            <Modal title="添加品种SKU"> <Form /> </Modal>
           </Col>
         </Row>
 

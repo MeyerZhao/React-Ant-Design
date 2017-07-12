@@ -3,21 +3,25 @@ import { Table } from 'antd';
 
 const columns = [{
   title: '类型编码',
-  dataIndex: 'name',
-  key: 'name',
+  dataIndex: 'item1',
+  key: 'item1',
   render: text => <a href="">{text}</a>,
 }, {
   title: '类型名称',
-  dataIndex: 'age',
-  key: 'age',
+  dataIndex: 'item12',
+  key: 'item12',
+}, {
+  title: '佣金比例',
+  dataIndex: 'item13',
+  key: 'item13',
 }, {
   title: '商家数量',
-  dataIndex: 'address',
-  key: 'address',
+  dataIndex: 'item14',
+  key: 'item14',
 }, {
   title: '更新时间',
-  dataIndex: 'address',
-  key: 'address',
+  dataIndex: 'item15',
+  key: 'item15',
 }, {
   title: '操作',
   key: 'action',
