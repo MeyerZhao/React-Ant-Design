@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 
 import App from './App'
 
@@ -49,7 +49,7 @@ import AdminAddress from './routes/admin_address/';
 
 
 ReactDOM.render(
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
     <Route breadcrumbName="首页" path="/" component={App}>
       <Route breadcrumbName="用户" path="user">
 				<Route breadcrumbName="用户列表" path="userlist" component={UserList}> </Route>
