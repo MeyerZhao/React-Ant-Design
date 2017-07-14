@@ -148,7 +148,7 @@ class RegistrationForm extends React.Component {
           {...formItemLayout} 
           label="图片" 
         >
-          <PicturesWall2 clssName="custom" uptxt="上传图片" />
+          <PicturesWall2 uptxt="上传图片" />
         </FormItem>
 
 

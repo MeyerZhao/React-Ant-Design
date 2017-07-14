@@ -1,23 +1,12 @@
 import React from 'react'
-import { Table, Row, Col, Button } from 'antd';
-
+import { Table, Row, Col, Button, Alert } from 'antd';
 
 const columns = [{
-  title: '订单编号', dataIndex: 'item1', key: 'item1', render: text => <a href={text}>{text}</a>, }, {
-  title: '下单方名称', dataIndex: 'item2', key: 'item2', }, {
-  title: '配送时间', dataIndex: 'item3', key: 'item3', }, {
-  title: '配送地区', dataIndex: 'item4', key: 'item4', }, {
-  title: '接单方', dataIndex: 'item5', key: 'item5', }, {
-  title: '订单状态', dataIndex: 'item6', key: 'item6', }, {
-  title: '订单金额', dataIndex: 'item7', key: 'item7', }, {
-  title: '操作', key: 'action', render: (text, record) => (
-    <span>
-      <a href="">编辑</a>
-      <span className="ant-divider" />
-      <a href="">删除</a>
-    </span>
-  ),
-}];
+  title: '下单方', dataIndex: 'item1', key: 'item1', render: text => <a href={text}>{text}</a>, }, {
+  title: '接单方', dataIndex: 'item2', key: 'item2', }, {
+  title: '申请时间', dataIndex: 'item3', key: 'item3', }, {
+  title: '处理时间', dataIndex: 'item4', key: 'item4', }, {
+  title: '结束时间', dataIndex: 'item5', key: 'item5', }];
 
 const data = [{
   key: '1',
@@ -39,20 +28,36 @@ const data = [{
   item7: 'John Brown',
 }];
 
-const columns2 = [{
-  title: '订单编号', width:120,  dataIndex: 'item1', key: 'item1'}, {
-  title: '下单方名称', dataIndex: 'item2', key: 'item2', }
+const columns_refund = [{
+  title: '下单方', dataIndex: 'item1', key: 'item1', }, {
+  title: '', dataIndex: 'item2', key: 'item2', render: text => <div><p >{text.conent}</p><span>{text.date}</span></div>, }, {
+  title: '接单方', dataIndex: 'item3', key: 'item3', }, {
+  title: '', dataIndex: 'item4', key: 'item4', render: text => <div><p >{text.conent}</p><span>{text.date}</span></div>, }];
+
+const data_refund = [{
+  key: '1',
+  item1: '13655286637',
+  item2: {
+    conent:"发起退款，退款金额90.00  退款类型：漏单 退款原因：测试订单",
+    date:"2017-05-19 11:30:42"
+  },
+  item3: '南京蓝岛花艺',
+  item4: {
+    conent:"发起退款，退款金额90.00  退款类型：漏单 退款原因：测试订单",
+    date:"2017-05-19 11:30:42"
+  },
+
+}];
+
+const columns4 = [{
+  title: '商品信息', width:120,  dataIndex: 'item1', key: 'item1'}, {
+  title: '单价', width:120,  dataIndex: 'item1', key: 'item1'}, {
+  title: '数量', width:120,  dataIndex: 'item1', key: 'item1'}, {
+  title: '服务费', width:120,  dataIndex: 'item1', key: 'item1'}, {
+  title: '优惠', width:120,  dataIndex: 'item1', key: 'item1'}, {
+  title: '小计', dataIndex: 'item2', key: 'item2', }
 ];
 
-const data2 = [{
-  key: '1',
-  item1: '下单方备注',
-  item2: '请按时送达',
-},{
-  key: '2',
-  item1: '接单方备注',
-  item3: '请按时送达',
-}];
 
 export default class Users extends React.Component {
   render(){
@@ -62,18 +67,17 @@ export default class Users extends React.Component {
 	    	  
 	    	  <Row gutter={8}>
 	    	    <Col span={12} >
-	    	    	<h2>订单详情:{this.props.params.orderid}</h2> 
-	    	    	<p style={{marginBottom:"10px"}} >订单类型：配送单    来源渠道：API    附加号码：1213132424</p>
+	    	    	<h2 style={{color:"#4d545c", marginBottom:"5px"}}>订单详情：{this.props.params.id}</h2> 
+	    	    	<p style={{marginBottom:"10px", color:"#94a1b0"}} >订单类型：配送单    来源渠道：API   </p>
 
-	  	    	  <p style={{marginBottom:"10px"}} >
-	    	    		<b>当前状态：已支付</b> <b>支付金额：￥90.00</b><small>（商品费用90.00+服务费用0.00）</small>
-	    	    	 	<b>支付方式：支付宝</b> <small>（89.00）+优惠（1.00，号码：23333）+退款（0.00）</small>
-	    	    	</p>
-	    	    	 <Button type="primary">确认订单</Button>&nbsp;
-	    	    	 <Button >签收订单</Button>&nbsp;
-	    	    	 <Button >退款</Button>
+              <h2 style={{color:"#4d545c"}}>当前退款状态：退款中，等待接单方处理</h2>
+
+	    	    	<Button style={{margin:"20px 0",height:"44px", width:"140px"}} siz="large" type="primary" >退款处理</Button>
+
+              <h2 style={{color:"#4d545c", marginBottom:"5px"}}>申请退款金额：<span style={{color:"#e55850"}}>￥90.00</span></h2>
+              <p style={{marginBottom:"10px", color:"#94a1b0"}} >订单可退款金额90.00</p>
 	    	    </Col>
-	    	    <Col span={12} />
+	    	    
 	    	  </Row>
 
 	    	  
@@ -81,25 +85,24 @@ export default class Users extends React.Component {
 	    	<div style={{paddingLeft:"40px"}}>
 	    		<h4 style={{borderBottom: "2px solid #ddd", paddingBottom: "10px"}} >基础信息</h4>
 	    		<Table columns={columns} dataSource={data} pagination={false} style={{marginBottom:"30px"}}/>
-	    		<h4 style={{borderBottom: "2px solid #ddd", paddingBottom: "10px"}} >交易双方</h4>
-	    		<Table columns={columns} dataSource={data} pagination={false} style={{marginBottom:"30px"}}/>
-	    		<h4 style={{borderBottom: "2px solid #ddd", paddingBottom: "10px"}} >配送信息</h4>
-	    		<Table columns={columns} dataSource={data} pagination={false} style={{marginBottom:"30px"}}/>
+          <Alert
+              message="错误 退款类型"
+              description="退款类型：花材与描述不符."
+              type="error"
+              showIcon
+            />
+           <Alert
+              message="错误 退款说明"
+              description="退款说明：花材跟说明的严重不符合"
+              type="error"
+              showIcon
+            /> 
 
-	    		<h4 style={{borderBottom: "2px solid #ddd", paddingBottom: "10px"}} >其他信息</h4>
-	    		<Table
-	    			style={{marginBottom:"30px"}} 
-	    			columns={columns2} 
-	    			dataSource={data2} 
-	    			pagination={false}
-	    			showHeader={false}
-	    		/>
+	    		<h4 style={{borderBottom: "2px solid #ddd", paddingBottom: "10px"}} >退款记录</h4>
+	    		<Table columns={columns_refund} dataSource={data_refund} pagination={false} style={{marginBottom:"30px"}}/>
 
 	    		<h4 style={{marginBottom:"10px"}} >商品信息</h4>
-	    		<Table columns={columns} dataSource={data} pagination={false} style={{marginBottom:"10px"}}/>
-	    		<div style={{textAlign:"right", fontSize:"18px", fontWeight:"bold"}}>
-		    		订单总金额:<span style={{color:"#e55850"}}>￥90.00</span>
-	    		</div >
+	    		<Table columns={columns4} pagination={false} style={{marginBottom:"10px"}}/>
 
 	    	</div>
     	</div>

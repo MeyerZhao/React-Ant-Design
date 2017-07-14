@@ -1,8 +1,5 @@
 import React from 'react'
-import { Table, Row, Col, Button, Tabs } from 'antd';
-import { Link } from 'react-router'
-import ModalList from '../../../components/ModalList'
-import Form from './Form'
+import { Table, Tabs } from 'antd';
 
 const TabPane = Tabs.TabPane;
 
@@ -18,7 +15,7 @@ const columns1 = [{
   title: '支付渠道流水号', dataIndex: 'item9', key: '9', }, {
   title: '操作', key: 'action', render: (text, record) => (
     <span>
-       <ModalList title="账户调整"> <Form /> </ModalList>
+      <a href="">编辑</a>
     </span>
   ),
 }];
@@ -35,7 +32,7 @@ const columns2 = [{
   title: '支付渠道流水号', dataIndex: 'item9', key: '9', }, {
   title: '操作', key: 'action', render: (text, record) => (
     <span>
-      <ModalList title="账户调整"> <Form /> </ModalList>
+      <a href="">编辑</a>
     </span>
   ),
 }];
@@ -50,23 +47,18 @@ const data = [{
   item6: 'John Brown',
 }];
 
+
+
 export default class Users extends React.Component {
   render(){
     return (
-    	<div>
-        <Row style={{marginBottom:'10px'}}>
-          <Col span={12} offset={12}>
-            <Button style={{float: "right"}} type="primary" size="large" ><Link to="/finance/account_manage/adjustmentrecord">调整记录</Link></Button>
-          </Col>
-        </Row>
-
-        <Tabs defaultActiveKey="1" >
-           <TabPane tab="全部" key="1"> <Table columns={columns1} dataSource={data} /> </TabPane>
-           <TabPane tab="进行中(1)" key="2"> <Table columns={columns2} dataSource={data} /> </TabPane>
-         </Tabs>
-
-
-    	</div>
+        <div>
+         
+          <Tabs defaultActiveKey="1" >
+             <TabPane tab="全部" key="1"> <Table columns={columns1} dataSource={data}  /> </TabPane>
+             <TabPane tab="进行中(1)" key="2"> <Table columns={columns2} dataSource={data} /> </TabPane>
+           </Tabs>
+        </div>
     )
   }
 }

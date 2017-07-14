@@ -6,7 +6,7 @@ import Form from './Form'
 
 
 const columns = [{
-  title: '商户注册手机', dataIndex: 'item1', key: 'item1', render: text => <a href={text}>{text}</a>, }, {
+  title: '商户UID', dataIndex: 'item1', key: 'item1', render: text => <a href={text}>{text}</a>, }, {
   title: '短信类型', dataIndex: 'item2', key: 'item2', }, {
   title: '购买量', dataIndex: 'item3', key: 'item3', }, {
   title: '购买金额', dataIndex: 'item4', key: 'item4', }, {
@@ -20,15 +20,13 @@ const columns = [{
       <a href="">短信明细</a>
       <span className="ant-divider" />
       <a href="">编辑</a>
-      <span className="ant-divider" />
-      <a href="">删除</a>
     </span>
   ),
 }];
 
 const data = [{
   key: '1',
-  item1: '/orders/general/517052012334556',
+  item1: '#/app/sms_mgr/517052012334556',
   item2: 'John Brown',
   item3: 'John Brown',
   item4: 'John Brown',

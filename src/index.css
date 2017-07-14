@@ -51,6 +51,12 @@ body {
   color: #666;
 }
 
+.ant-alert {
+    margin-bottom: 16px;
+}
+
+
+
 
 /* 面包屑导航 */
 

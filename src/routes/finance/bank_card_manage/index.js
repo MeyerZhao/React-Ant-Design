@@ -1,7 +1,8 @@
 import React from 'react'
-import { Table, Row, Col } from 'antd';
+import { Table, Row, Col, } from 'antd';
 import Modal from '../../../components/Modal.js'
 import Form from './Form'
+
 
 const columns = [{
   title: '图片', dataIndex: 'name', key: 'name', render: text => <a href="">{text}</a>, }, {
@@ -26,9 +27,11 @@ export default class Users extends React.Component {
     	<div>
         <Row style={{marginBottom:'10px'}}>
           <Col span={12}>
-            <Modal title="银行卡管理"> <Form /> </Modal>
+            <Modal title="添加银行卡"> <Form /> </Modal>
           </Col>
+ 
         </Row>
+
         <Table columns={columns}  />
 
     	</div>

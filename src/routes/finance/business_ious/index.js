@@ -1,34 +1,49 @@
 import React from 'react'
-import { Table, Row, Col } from 'antd';
-import Modal from '../../../components/Modal.js'
-import Form from './Form'
+import { Table, Row, Col, Button, Input, } from 'antd';
+import AdvSearch from '../AdvSearch'
+const Search = Input.Search;
 
 const columns = [{
-  title: '图片', dataIndex: 'name', key: 'name', render: text => <a href="">{text}</a>, }, {
-  title: '品种名称', dataIndex: 'address', key: '7', }, {
-  title: 'SKU编号', dataIndex: 'address', key: '7', }, {
-  title: '属性值', dataIndex: 'address', key: '7', }, {
-  title: '所属品类', dataIndex: 'address', key: '8', }, {
-  title: '排序', dataIndex: 'address', key: '9', }, {
-  title: '更新时间', dataIndex: 'address', key: 'address', }, {
-  title: '操作', key: 'action', render: (text, record) => (
-    <span>
-      <a href="">编辑</a>
-      <span className="ant-divider" />
-      <a href="">删除</a>
-    </span>
-  ),
-}];
+  title: '商家UID', dataIndex: 'item1', key: '1', render: text => <a href="">{text}</a>, }, {
+  title: '商家名称', dataIndex: 'item2', key: '2', }, {
+  title: '商家类型', dataIndex: 'item3', key: '3', }, {
+  title: '主营品类', dataIndex: 'item4', key: '4', }, {
+  title: '注册时间', dataIndex: 'item5', key: '5', }, {
+  title: '白条用户数', dataIndex: 'item6', key: '6', }, {
+  title: '白条总额', dataIndex: 'item7', key: '7', }, {
+  title: '白条余额', dataIndex: 'item8', key: '8', }, {
+  title: '应收金额', dataIndex: 'item9', key: '9', }];
+
+
+
+
+
+
+
+
+
 
 export default class Users extends React.Component {
   render(){
     return (
     	<div>
         <Row style={{marginBottom:'10px'}}>
-          <Col span={12}>
-            <Modal title="商家白条"> <Form /> </Modal>
+          <Col span={12} offset={12}>
+            <Button size="large" style={{float: "right"}}>高级搜索</Button>
+            <Search 
+               size="large"
+               placeholder="输入关键字"
+               style={{ width: 200, float: "right",  marginRight:"10px" }}
+             />
           </Col>
         </Row>
+
+        <Row style={{marginBottom:'10px'}}>
+          <Col span={24}>
+            <AdvSearch ></AdvSearch>
+          </Col>
+        </Row>
+
         <Table columns={columns}  />
 
     	</div>

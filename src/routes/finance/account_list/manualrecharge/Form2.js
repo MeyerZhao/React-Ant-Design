@@ -1,30 +1,14 @@
 import React from 'react'
-import { Form, Input, Button, Select, Radio, Checkbox } from 'antd'
-import { DatePicker } from 'antd';
-const { RangePicker } = DatePicker;
+import { Form, Input, Button, InputNumber } from 'antd';
+import { Radio } from 'antd';
 
-
-const CheckboxGroup = Checkbox.Group;
 const RadioGroup = Radio.Group;
-const Option = Select.Option;
 const FormItem = Form.Item;
-
-const options = [
-  { label: '提现次数不限', value: '提现次数不限' },
-  { label: '充值限制', value: '充值限制' },
-  { label: '提现限制', value: '提现限制', },
-  { label: '交易限制', value: '交易限制', },
-];
-
-
-
-const RangePicker2=(
-  <RangePicker
-        showTime={{ format: 'HH:mm' }}
-        format="YYYY-MM-DD HH:mm"
-
-      />)
-
+const radioStyle = {
+      display: 'block',
+      height: '30px',
+      lineHeight: '30px',
+    };
 
 
 class RegistrationForm extends React.Component {
@@ -32,12 +16,7 @@ class RegistrationForm extends React.Component {
     confirmDirty: false,
     autoCompleteResult: [],
     value: 1,
-  };
-  onChange2 = (e) => {
-    console.log('radio checked', e.target.value);
-    this.setState({
-      value: e.target.value,
-    });
+
   }
   handleSubmit = (e) => {
     e.preventDefault();
@@ -45,6 +24,12 @@ class RegistrationForm extends React.Component {
       if (!err) {
         console.log('Received values of form: ', values);
       }
+    });
+  }
+  onChange2 = (e) => {
+    console.log('radio checked', e.target.value);
+    this.setState({
+      value: e.target.value,
     });
   }
   handleConfirmBlur = (e) => {
@@ -87,44 +72,60 @@ class RegistrationForm extends React.Component {
     return (
       <Form onSubmit={this.handleSubmit}>
 
-        <FormItem {...formItemLayout} label="用户UID"> <Input /> </FormItem>
-       
+        <FormItem 
+          {...formItemLayout} 
+          label="用户UID" 
+        >
+          <Input disabled defaultValue="用户UID" />
+        </FormItem>
 
         <FormItem 
           {...formItemLayout} 
-          label="调整内容" 
+          label="注册手机" 
         >
-          <CheckboxGroup options={options} defaultValue={['交易限制']}  />
+          <Input disabled defaultValue="注册手机" />
         </FormItem>
 
-        <FormItem {...formItemLayout} label="所属品类">
-          <Select placeholder="所属品类">
-               <Option value="1">顶级品类</Option>
-               <Option value="2">顶级品类1</Option>
-               <Option value="3">顶级品类2</Option>
-             </Select>
+        <FormItem 
+          {...formItemLayout} 
+          label="昵称/商户名称" 
+        >
+          <Input disabled defaultValue="昵称/商户名称" />
+        </FormItem>
+
+        <FormItem 
+          {...formItemLayout} 
+          label="充值金额" 
+        >
+          <InputNumber min={1} max={10} defaultValue={200.00} disabled />
+        </FormItem>
+
+
+        <FormItem
+          {...formItemLayout}
+          label="充值说明"
+        >
+           <Input disabled type="textarea" rows={4} defaultValue="充值说明充值说明充值说明充值说明" />
+
         </FormItem>
 
          <FormItem
           {...formItemLayout}
-          label="有效期限"
+          label="复核说明"
         >
           <RadioGroup onChange={this.onChange2} value={this.state.value}>
-              <Radio   value={1}>长期</Radio>
-              <Radio   value={2}>自定义
+              <Radio style={radioStyle}  value={1}>交易流水号错误</Radio>
+              <Radio style={{display: 'block'}}  value={2}>其他
               </Radio>
             </RadioGroup>
-          {this.state.value === 2 ? RangePicker2 : null}
+          {this.state.value === 2 ? <Input style={{display: 'block'}} type="textarea" rows={4} /> : null}
 
         </FormItem>
 
-       <FormItem {...formItemLayout} label="调整原因">  <Input type="textarea" rows={4} /> </FormItem>
-
-
-
       
         <FormItem {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit" size="large">确认提交</Button>
+          <Button type="primary" htmlType="submit" size="large" style={{marginRight:"10px"}}>审核通过</Button>
+          <Button type="danger" ghost htmlType="submit" size="large">拒绝通过</Button>
         </FormItem>
       </Form>
     );

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Table, Row, Col, Button } from 'antd';
-import AdvSearch from './AdvSearch'
+import AdvSearch from '../AdvSearch'
 import { Input } from 'antd';
 const Search = Input.Search;
 
@@ -12,14 +12,8 @@ const columns = [{
   title: '接单方', dataIndex: 'item5', key: 'item5', }, {
   title: '订单状态', dataIndex: 'item6', key: 'item6', }, {
   title: '订单金额', dataIndex: 'item7', key: 'item7', }, {
-  title: '操作', key: 'action', render: (text, record) => (
-    <span>
-      <a href="">编辑</a>
-      <span className="ant-divider" />
-      <a href="">删除</a>
-    </span>
-  ),
-}];
+  title: '来源渠道', dataIndex: 'item8', key: 'item8', }, {
+  title: '下单时间', dataIndex: 'item9', key: 'item9', }];
 
 const data = [{
   key: '1',
@@ -47,14 +41,12 @@ export default class Users extends React.Component {
     	<div>
 
         <Row style={{marginBottom:'10px'}}>
-          
           <Col span={12} offset={12}>
             <Button size="large" style={{float: "right"}}>高级搜索</Button>
             <Search 
                size="large"
                placeholder="输入关键字"
                style={{ width: 200, float: "right",  marginRight:"10px" }}
-        
              />
           </Col>
         </Row>

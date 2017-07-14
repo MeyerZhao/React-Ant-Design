@@ -1,6 +1,8 @@
 import React from 'react'
-import { Table, Row, Col } from 'antd';
+import { Table, Row, Col, Button } from 'antd';
 import { Input } from 'antd';
+import ModalList from '../../../../components/ModalList.js'
+import Form2 from './Form2'
 const Search = Input.Search;
 
 const columns = [{
@@ -12,10 +14,9 @@ const columns = [{
   title: '申请时间', dataIndex: 'item6', key: 'item6', }, {
   title: '处理时间', dataIndex: 'item7', key: 'item7', }, {
   title: '充值来源', dataIndex: 'item8', key: 'item8', }, {
-  title: '充值状态', dataIndex: 'item9', key: 'item9', }, {
+  title: '充值状态', dataIndex: 'item9', key: 'item9', render: text => <ModalList title="待复核"> <Form2 /> </ModalList> }, {
   title: '充值说明', dataIndex: 'item10', key: 'item10', }
 ];
-
 
 
 
@@ -29,7 +30,7 @@ const data = [{
   item6: ' 2017-05-02 12:01:27',
   item7: ' 2017-05-02 12:01:27',
   item8: ' PC-支付宝',
-  item9: ' 已成功',
+  item9: ' 待复核',
   item10: ' 支付宝流水号20123333',
 }];
 
@@ -39,16 +40,23 @@ export default class Users extends React.Component {
   render(){
     return (
       <div>
-
         <Row style={{marginBottom:'10px'}}>
-          <Col span={24}>
+          <Col span={12}>
+            
+          </Col>
+         
+          <Col span={12}>
+           <Button size="large" style={{float: "right"}}>高级搜索</Button>
             <Search 
-              placeholder="输入搜索关键字"
-              style={{ width: 200, float:"right" }}
-              size="large"
-            />
+               size="large"
+               placeholder="输入关键字"
+               style={{ width: 200, float: "right",  marginRight:"10px" }}
+             />
           </Col>
         </Row>
+       
+
+
         <Table columns={columns} dataSource={data}/>
       </div>
     )

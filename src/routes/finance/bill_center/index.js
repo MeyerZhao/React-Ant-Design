@@ -1,21 +1,21 @@
 import React from 'react'
-import { Table, Row, Col } from 'antd';
-import Modal from '../../../components/Modal.js'
-import Form from './Form'
+import { Table, Row, Col, Button, Input  } from 'antd';
+import { Icon } from 'antd';
+import { Radio } from 'antd';
+const RadioButton = Radio.Button;
+const RadioGroup = Radio.Group;
+
+const ButtonGroup = Button.Group;
+const Search = Input.Search;
 
 const columns = [{
-  title: '图片', dataIndex: 'name', key: 'name', render: text => <a href="">{text}</a>, }, {
-  title: '品种名称', dataIndex: 'address', key: '7', }, {
-  title: 'SKU编号', dataIndex: 'address', key: '7', }, {
-  title: '属性值', dataIndex: 'address', key: '7', }, {
-  title: '所属品类', dataIndex: 'address', key: '8', }, {
-  title: '排序', dataIndex: 'address', key: '9', }, {
-  title: '更新时间', dataIndex: 'address', key: 'address', }, {
+  title: '日期', dataIndex: 'name', key: 'name', render: text => <a href="">{text}</a>, }, {
+  title: '收入(元)', dataIndex: 'address', key: '7', }, {
+  title: '支出(元)', dataIndex: 'address', key: '7', }, {
+  title: '余额(元)', dataIndex: 'address', key: '7', }, {
   title: '操作', key: 'action', render: (text, record) => (
     <span>
       <a href="">编辑</a>
-      <span className="ant-divider" />
-      <a href="">删除</a>
     </span>
   ),
 }];
@@ -26,10 +26,35 @@ export default class Users extends React.Component {
     	<div>
         <Row style={{marginBottom:'10px'}}>
           <Col span={12}>
-            <Modal title="对账中心"> <Form /> </Modal>
+            <RadioGroup defaultValue="a" size="large" style={{marginRight:"10px"}}>
+              <RadioButton value="a">日汇总</RadioButton>
+              <RadioButton value="b">月汇总</RadioButton>
+            </RadioGroup>
+
+            <ButtonGroup  style={{marginRight:"10px"}}>
+                 <Button type="primary">
+                   <Icon type="left" />
+                 </Button>
+                 <Button type="primary">
+                   <Icon type="right" />
+                 </Button>
+            </ButtonGroup>
+            <b style={{fontSize:"18px",fontWeight:"bold"}}>
+              2017年5月
+            </b>
+          </Col>
+          <Col span={12} >
+            <Button size="large" style={{float: "right", }}>打印</Button>
+            <Button size="large" style={{float: "right", marginRight:"10px"}}>下载</Button>
+            <Search 
+               size="large"
+               placeholder="输入关键字"
+               style={{ width: 200, float: "right",  marginRight:"10px" }}
+             />
           </Col>
         </Row>
-        <Table columns={columns}  />
+
+        <Table columns={columns} />
 
     	</div>
     )

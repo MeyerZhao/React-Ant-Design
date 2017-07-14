@@ -31,30 +31,13 @@ class RegistrationForm extends React.Component {
     const value = e.target.value;
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   }
-  checkPassword = (rule, value, callback) => {
-    const form = this.props.form;
-    if (value && value !== form.getFieldValue('password')) {
-      callback('2次输入密码不一致!');
-    } else {
-      callback();
-    }
-  }
+
   checkConfirm = (rule, value, callback) => {
     const form = this.props.form;
     if (value && this.state.confirmDirty) {
       form.validateFields(['confirm'], { force: true });
     }
     callback();
-  }
-
-  handleWebsiteChange = (value) => {
-    let autoCompleteResult;
-    if (!value) {
-      autoCompleteResult = [];
-    } else {
-      autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
-    }
-    this.setState({ autoCompleteResult });
   }
 
 
@@ -111,15 +94,10 @@ class RegistrationForm extends React.Component {
          <FormItem {...formItemLayout} label="短信类型">
            <RadioGroup options={plainOptions} onChange={this.onChange1} value={this.state.value1} />
         </FormItem>
-         <FormItem {...formItemLayout} label="短信数量">
-          <Input />
+         <FormItem {...formItemLayout} label="短信内容">
+          <Input  type="textarea" rows={4} defaultValue="短信内容短信内容短信内容" />
         </FormItem>
-         <FormItem {...formItemLayout} label="购买金额">
-          <Input />
-        </FormItem>
-         <FormItem {...formItemLayout} label="短信签名">
-          <Input />
-        </FormItem>
+        
 
 
 

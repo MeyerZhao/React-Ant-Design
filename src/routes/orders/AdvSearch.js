@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Row, Col, Input, Button, Select, Cascader } from 'antd'
-import city from '../../../utils/city.js'
+import city from '../../utils/city.js'
 import { DatePicker } from 'antd'
 import { Radio } from 'antd';
 

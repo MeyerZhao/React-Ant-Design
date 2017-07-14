@@ -1,6 +1,10 @@
 import React from 'react'
-import { Table, Row, Col } from 'antd';
+import { Table, Row, Col, Button } from 'antd';
 import { Input } from 'antd';
+import { Link } from 'react-router'
+import AdvSearch from '../AdvSearch'
+import ModalList from '../../../components/ModalList'
+import Form from './Form'
 const Search = Input.Search;
 
 
@@ -17,9 +21,11 @@ const columns = [{
   title: '白条余额', dataIndex: 'item10', key: 'item10', }, {
   title: '操作', dataIndex: 'action', key: 'action', render: (text, record) => (
     <span>
+      <a >对账单</a>
+      <span className="ant-divider" />
       <a href={text.financialdetails}>财务明细</a>
       <span className="ant-divider" />
-      <a href={text.manualrecharge}>人工充值</a>
+      <ModalList title="人工充值申请"> <Form /> </ModalList>
     </span>
   ),
 }];
@@ -37,8 +43,8 @@ const data = [{
   item9: 'John Brown',
   item10: 'John Brown',
   action: {
-    financialdetails:'/finance/account_list/financialdetails/456798',
-    manualrecharge:'/finance/account_list/manualrecharge/687456'
+    financialdetails:'#/finance/account_list/financialdetails/456798',
+    manualrecharge:'#/finance/account_list/manualrecharge/687456'
   }
 }];
 
@@ -48,14 +54,26 @@ export default class Users extends React.Component {
       <div>
 
         <Row style={{marginBottom:'10px'}}>
-          <Col span={12}>
-            <Search
-              placeholder="输入搜索关键字 测试修改"
-              style={{ width: 200 }}
-              size="large"
-            />
+          <Col span={12} >
+            <Button type="primary" size="large" ><Link to="/finance/account_list/manualrecharge/687455">人工充值列表</Link></Button>
+            
+          </Col>
+          <Col span={12} >
+            <Button size="large" style={{float: "right"}}>高级搜索</Button>
+            <Search 
+               size="large"
+               placeholder="输入关键字"
+               style={{ width: 200, float: "right",  marginRight:"10px" }}
+             />
           </Col>
         </Row>
+
+        <Row style={{marginBottom:'10px'}}>
+          <Col span={24}>
+            <AdvSearch ></AdvSearch>
+          </Col>
+        </Row>
+
         <Table columns={columns} dataSource={data}/>
       </div>
     )

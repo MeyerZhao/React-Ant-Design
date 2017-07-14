@@ -42,12 +42,15 @@ import AccountList from './routes/finance/account_list/';
 import BusinessIous from './routes/finance/business_ious/';
 import WithdrawManage from './routes/finance/withdraw_manage/';
 import AccountManage from './routes/finance/account_manage/';
+  import AdjustmentRecord from './routes/finance/account_manage/adjustmentrecord/';
+
 import BillCenter from './routes/finance/bill_center/';
 import BondManage from './routes/finance/bond_manage/';
 import BankCardManage from './routes/finance/bank_card_manage/';
 
 
 import SMSMgr from './routes/application/sms_mgr/';
+  import SMSMgrDetails from './routes/application/sms_mgr/details';
 
 import AdminAddress from './routes/admin_address/';
     import AdminAddressDetails from './routes/admin_address/details/';
@@ -91,9 +94,11 @@ ReactDOM.render(
       	<Route breadcrumbName="账户列表" path="account_list" component={AccountList}> </Route>
           <Route breadcrumbName="财务明细"  path="account_list/financialdetails/:id" component={FinancialDetails}> </Route>
           <Route breadcrumbName="人工充值"  path="account_list/manualrecharge/:id" component={ManualRecharge}> </Route>
-      	<Route breadcrumbName="商家白条" path="business_ious" component={BusinessIous}> </Route>
-      	<Route breadcrumbName="提现管理" path="withdraw_manage" component={WithdrawManage}> </Route>
-      	<Route breadcrumbName="账户管理" path="account_manage" component={AccountManage}> </Route>
+        <Route breadcrumbName="商家白条" path="business_ious" component={BusinessIous}> </Route>
+        <Route breadcrumbName="提现管理" path="withdraw_manage" component={WithdrawManage}> </Route>
+        <Route breadcrumbName="账户管理" path="account_manage" component={AccountManage}> </Route>
+          <Route breadcrumbName="调整记录"  path="account_manage/adjustmentrecord" component={AdjustmentRecord}> </Route>
+
       	<Route breadcrumbName="对账中心" path="bill_center" component={BillCenter}> </Route>
       	<Route breadcrumbName="保证金管理" path="bond_manage" component={BondManage}> </Route>
       	<Route breadcrumbName="银行卡管理" path="bank_card_manage" component={BankCardManage}> </Route>
@@ -101,6 +106,7 @@ ReactDOM.render(
 
       <Route breadcrumbName="应用" path="app"> 
         <Route breadcrumbName="短信管理" path="sms_mgr" component={SMSMgr}> </Route>
+          <Route breadcrumbName="短信明细"  path="sms_mgr/:id" component={SMSMgrDetails}> </Route>
       </Route>
 
       <Route breadcrumbName="数据分析" path="data_analysis"> </Route>

@@ -1,18 +1,15 @@
 import React from 'react'
-import { Form, Row, Col, Input, Button, Select, Cascader } from 'antd'
-import city from '../../../utils/city.js'
-import { DatePicker } from 'antd'
+import { Form, Row, Col, Input, Button, Select } from 'antd'
 import { Radio } from 'antd';
 
     const RadioGroup = Radio.Group;
     const InputGroup = Input.Group;
     const Option = Select.Option;
-    const { RangePicker } = DatePicker;
     const Search = Input.Search;
     const FormItem = Form.Item;
 
-    const plainOptions = ['状态1', '状态2', '状态3'];
-    const plainOptions2 = ['渠道1', '渠道2', '渠道3'];
+    const plainOptions = ['类型1', '类型2', '类型3'];
+    const plainOptions2 = ['未开通', '已开通'];
 
     const ColProps = {
       xs: 24,
@@ -51,9 +48,6 @@ class AdvancedSearchForm extends React.Component {
       console.log('Received values of form: ', values);
     });
   }
-  handleReset = () => {
-    this.props.form.resetFields();
-  }
   render() {
     return (
       <Form
@@ -69,35 +63,15 @@ class AdvancedSearchForm extends React.Component {
                 onSearch={value => console.log(value)}
               />
           </Col>
+
           <Col {...ColProps} xl={6} md={9} >
             <InputGroup compact>
-              <Select defaultValue="Option1" size="large" style={{ width: '25%' }}>
-                <Option value="Option1">下单时间</Option>
-                <Option value="Option2">配送时间</Option>
-              </Select>
-              <RangePicker
-                  style={{ width: '75%' }} 
-                  size="large"
-                  showTime
-                  format="YYYY-MM-DD HH:mm:ss"
-                  placeholder={['开始时间', '结束时间']}
-                />
-            </InputGroup>
-          </Col>
-        </Row>
-        <Row gutter={24}>
-          <Col {...ColProps} xl={5} md={8} >
-              <FormItem style={{width:"100%", background:"#fff", borderRadius: "4px" }}
-                {...formItemLayout}
-                label="订单状态"
-              >
-                  <RadioGroup options={plainOptions} onChange={this.onChange1} value={this.state.value1} />
-              </FormItem>
-          </Col>
-          <Col {...ColProps} xl={6} md={9} >
-            <InputGroup compact>
-              <Select defaultValue="1" size="large" style={{ width: '25%' }}>
-                <Option value="1">订单金额</Option>
+              <Select defaultValue="可用余额" size="large" style={{ width: '25%' }}>
+                <Option value="可用余额">可用余额</Option>
+                <Option value="冻结金额">冻结金额</Option>
+                <Option value="保证金额">保证金额</Option>
+                <Option value="白条额度">白条额度</Option>
+                <Option value="白条余额">白条余额</Option>
                 
               </Select>
               <Input size="large" style={{ width: '25%', textAlign: 'center' }} placeholder="最小值" />
@@ -110,21 +84,21 @@ class AdvancedSearchForm extends React.Component {
           <Col {...ColProps} xl={5} md={8} >
               <FormItem style={{width:"100%", background:"#fff", borderRadius: "4px" }}
                 {...formItemLayout}
-                label="来源渠道"
+                label="用户类型"
+              >
+                  <RadioGroup options={plainOptions} onChange={this.onChange1} value={this.state.value1} />
+              </FormItem>
+          </Col>
+          <Col {...ColProps} xl={5} md={8} >
+              <FormItem style={{width:"100%", background:"#fff", borderRadius: "4px" }}
+                {...formItemLayout}
+                label="白条状态"
               >
                   <RadioGroup options={plainOptions2} onChange={this.onChange2} value={this.state.value2} />
               </FormItem>
           </Col>
-          <Col {...ColProps} xl={6} md={9} >
-            <Cascader
-              size="large"
-              style={{ width: '100%' }}
-              options={city}
-              placeholder="配送地址"
-              changeOnSelect
-            />
-          </Col>
         </Row>
+
         <Row>
           <Col span={24} style={{ textAlign: 'left' }}>
             <Button type="primary" htmlType="submit" size="large">搜索</Button>
