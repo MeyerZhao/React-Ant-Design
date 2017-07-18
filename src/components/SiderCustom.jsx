@@ -53,7 +53,7 @@ class SiderCustom extends Component {
                 collapsible
                 collapsed={this.props.collapsed}
                 onCollapse={this.onCollapse}
-                style={{overflowY: 'auto'}}
+
             >
                 <div className="logo" />
                 <Menu
