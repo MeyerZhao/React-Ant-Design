@@ -1,6 +1,6 @@
 import React from 'react'
 import { Table, Row, Col, Button, Input } from 'antd';
-import AdvSearch from './AdvSearch'
+import AdvSearch from '../AdvSearch3'
 const Search = Input.Search;
 
 const columns = [{

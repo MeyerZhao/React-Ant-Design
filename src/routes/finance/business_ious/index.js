@@ -1,6 +1,6 @@
 import React from 'react'
 import { Table, Row, Col, Button, Input, } from 'antd';
-import AdvSearch from '../AdvSearch'
+import AdvSearch from './AdvSearch'
 const Search = Input.Search;
 
 const columns = [{
@@ -13,12 +13,6 @@ const columns = [{
   title: '白条总额', dataIndex: 'item7', key: '7', }, {
   title: '白条余额', dataIndex: 'item8', key: '8', }, {
   title: '应收金额', dataIndex: 'item9', key: '9', }];
-
-
-
-
-
-
 
 
 

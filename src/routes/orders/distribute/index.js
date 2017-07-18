@@ -1,16 +1,16 @@
 import React from 'react'
 import { Table, Row, Col, Button, Input } from 'antd';
-import AdvSearch from '../AdvSearch'
+import AdvSearch from '../AdvSearch2'
 const Search = Input.Search;
 
 const columns = [{
-  title: '订单编号', dataIndex: 'item1', key: 'item1', render: text => <a href={text}>{text}</a>, }, {
-  title: '下单方名称', dataIndex: 'item2', key: 'item2', }, {
+  title: '配送单号', dataIndex: 'item1', key: 'item1', render: text => <a href={text}>{text}</a>, }, {
+  title: '接单方', dataIndex: 'item2', key: 'item2', }, {
   title: '配送时间', dataIndex: 'item3', key: 'item3', }, {
   title: '配送地区', dataIndex: 'item4', key: 'item4', }, {
   title: '接单方', dataIndex: 'item5', key: 'item5', }, {
-  title: '订单状态', dataIndex: 'item6', key: 'item6', }, {
-  title: '订单金额', dataIndex: 'item7', key: 'item7', }, {
+  title: '配送状态', dataIndex: 'item6', key: 'item6', }, {
+  title: '配送费', dataIndex: 'item7', key: 'item7', }, {
   title: '来源渠道', dataIndex: 'item8', key: 'item8', }, {
   title: '下单时间', dataIndex: 'item9', key: 'item9', }];
 
