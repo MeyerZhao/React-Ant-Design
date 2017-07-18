@@ -1,22 +1,21 @@
 import React from 'react'
-import { Table, Row, Col } from 'antd';
-import { Input } from 'antd';
-import { Tabs } from 'antd';
+import { Table, Row, Col, Input, Tabs, Button } from 'antd';
+import AdvSearch from './AdvSearch'
 import './index.css';
 const TabPane = Tabs.TabPane;
 const Search = Input.Search;
 
+
 const columns = [{
-  title: '流水号', dataIndex: 'item1', key: 'item1', render: text => <a href={text}>{text}</a>, }, {
-  title: '充值金额', dataIndex: 'item2', key: 'item2', }, {
-  title: '用户UID', dataIndex: 'item3', key: 'item3', }, {
-  title: '注册手机', dataIndex: 'item4', key: 'item4', }, {
-  title: '商家名称', dataIndex: 'item5', key: 'item5', }, {
-  title: '申请时间', dataIndex: 'item6', key: 'item6', }, {
-  title: '处理时间', dataIndex: 'item7', key: 'item7', }, {
-  title: '充值来源', dataIndex: 'item8', key: 'item8', }, {
-  title: '充值状态', dataIndex: 'item9', key: 'item9', }, {
-  title: '充值说明', dataIndex: 'item10', key: 'item10', }
+  title: '入账时间', dataIndex: 'item1', key: 'item1', render: text => <a href={text}>{text}</a>, }, {
+  title: '用户UID', dataIndex: 'item2', key: 'item2', }, {
+  title: '商家名称', dataIndex: 'item3', key: 'item3', }, {
+  title: '流水号', dataIndex: 'item4', key: 'item4', }, {
+  title: '账务类型', dataIndex: 'item5', key: 'item5', }, {
+  title: '交易对方', dataIndex: 'item6', key: 'item6', }, {
+  title: '收支金额', dataIndex: 'item7', key: 'item7', }, {
+  title: '账户余额', dataIndex: 'item8', key: 'item8', }, {
+  title: '操作', dataIndex: 'item10', key: 'item10', }
 ];
 
 
@@ -33,7 +32,7 @@ const data = [{
   item7: ' 2017-05-02 12:01:27',
   item8: ' PC-支付宝',
   item9: ' 已成功',
-  item10: ' 支付宝流水号20123333',
+  item10: ' 详情',
 }];
 
 
@@ -45,11 +44,17 @@ export default class Users extends React.Component {
 
         <Row style={{marginBottom:'10px'}}>
           <Col span={24}>
+            <Button size="large" style={{float: "right"}}>高级搜索</Button>
             <Search 
               placeholder="输入搜索关键字"
-              style={{ width: 200, float:"right" }}
+              style={{ width: 200, float:"right", marginRight:"10px"}}
               size="large"
             />
+          </Col>
+        </Row>
+        <Row style={{marginBottom:'10px'}}>
+          <Col span={24}>
+            <AdvSearch></AdvSearch>
           </Col>
         </Row>
         

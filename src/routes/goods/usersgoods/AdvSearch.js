@@ -74,8 +74,7 @@ class AdvancedSearchForm extends React.Component {
           <Col {...ColProps} xl={6} md={9} >
             <InputGroup compact>
               <Select defaultValue="Option1" size="large" style={{ width: '25%'}}>
-                <Option value="Option1">开店时间</Option>
-                <Option value="Option2">有效期限</Option>
+                <Option value="Option1">更新时间</Option>
               </Select>
               <RangePicker
                   style={{ width: '75%' }} 
@@ -94,7 +93,7 @@ class AdvancedSearchForm extends React.Component {
           <Col {...ColProps} xl={4} md={8} >
               <FormItem style={{width:"100%", background:"#fff", borderRadius: "4px" }}
                 {...formItemLayout}
-                label="商家名称"
+                label="商品状态"
               >
                   <RadioGroup value={this.state.value} onChange={this.onChange} >
                     <Radio value={1}>上架</Radio>

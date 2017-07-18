@@ -19,6 +19,26 @@ const business = [{
   title: '所在地区', dataIndex: 'item5', key: 'item5', }, {
   title: '注册时间', dataIndex: 'item6', key: 'item6', }];
 
+const businessdata = [{
+  key: '1',
+  item1: '下单方',
+  item2: 32,
+  item3: '0571-22098909',
+  item4: 18889898989,
+  item5: 'New York No. 1 Lake Park',
+  item6: 'New York No. 1 Lake Park',
+  item7: 'New York No. 1 Lake Park',
+}, {
+  key: '2',
+  item1: '接单方',
+  item2: 32,
+  item3: '0571-22098909',
+  item4: 18889898989,
+  item5: 'New York No. 1 Lake Park',
+  item6: 'New York No. 1 Lake Park',
+  item7: 'New York No. 1 Lake Park',
+}]
+
 const distribution = [{
   title: '配送/发货时间', dataIndex: 'item1', key: 'item1', }, {
   title: '收货人姓名', dataIndex: 'item2', key: 'item2', }, {
@@ -27,12 +47,9 @@ const distribution = [{
 
 const goods = [{
   title: '商品信息', dataIndex: 'item1', key: 'item1', }, {
-  title: '单价', width:"100px", dataIndex: 'item2', key: 'item2', }, {
-  title: '数量', width:"100px", dataIndex: 'item3', key: 'item3', }, {
+  title: '数量', width:"100px", dataIndex: 'item2', key: 'item2', }, {
+  title: '报价', width:"100px", dataIndex: 'item3', key: 'item3', }, {
   title: '小计', width:"100px", dataIndex: 'item4', key: 'item4', }];
-
-
-
 
 
 
@@ -44,7 +61,7 @@ export default class Users extends React.Component {
           
           <Row gutter={8}>
             <Col span={12} >
-              <h2 style={{color:"#4d545c", marginBottom:"5px"}}>订单详情：{this.props.params.id}</h2> 
+              <h2 style={{color:"#4d545c", marginBottom:"5px"}}>订单编号：{this.props.params.id}</h2> 
               <p style={{marginBottom:"10px", color:"#94a1b0"}} >订单类型：配送单    来源渠道：API    附加号码：1213132424</p>
 
               <h2 style={{color:"#4d545c", marginBottom:"5px"}}>订单报价：等待报价<span style={{color:"#e55850"}}>￥90.00</span></h2> 
@@ -65,8 +82,10 @@ export default class Users extends React.Component {
         <div style={{paddingLeft:"40px"}}>
           <h4 style={{borderBottom: "2px solid #ddd", paddingBottom: "10px"}} >基础信息</h4>
           <Table columns={columns} pagination={false} style={{marginBottom:"30px"}}/>
+
           <h4 style={{borderBottom: "2px solid #ddd", paddingBottom: "10px"}} >交易双方</h4>
-          <Table columns={business} pagination={false} style={{marginBottom:"30px"}}/>
+          <Table columns={business} dataSource={businessdata} pagination={false} style={{marginBottom:"30px"}}/>
+
           <h4 style={{borderBottom: "2px solid #ddd", paddingBottom: "10px"}} >配送信息</h4>
           <Table columns={distribution} pagination={false} style={{marginBottom:"30px"}}/>
 
@@ -82,9 +101,6 @@ export default class Users extends React.Component {
 
           <h4 style={{marginBottom:"10px"}} >商品信息</h4>
           <Table columns={goods} pagination={false} style={{marginBottom:"10px"}}/>
-          <div style={{textAlign:"right", fontSize:"18px", fontWeight:"bold"}}>
-            订单总金额:<span style={{color:"#e55850"}}>￥90.00</span>
-          </div >
 
         </div>
       </div>

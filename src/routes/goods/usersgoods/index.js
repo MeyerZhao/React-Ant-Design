@@ -5,24 +5,30 @@ import { Row, Col, Button, Table } from 'antd';
 import AdvSearch from './AdvSearch'
 
 
+
+
+
+
+
+
+
+
 const columns = [{
-  title: '商家UID', dataIndex: 'name', key: 'name', render: text => <a href="">{text}</a>, }, {
-  title: '商家名称', dataIndex: 'age', key: 'age', }, {
-  title: '商家类型', dataIndex: 'address', key: '1', }, {
-  title: '主营类目', dataIndex: 'address', key: '2', }, {
-  title: '佣金比例', dataIndex: 'address', key: '22', }, {
-  title: '当前状态', dataIndex: 'address', key: '3', }, {
-  title: '所在地区', dataIndex: 'address', key: '4', }, {
-  title: '开店时间', dataIndex: 'address', key: '5', }, {
-  title: '有效期限', dataIndex: 'address', key: '6', }, {
-  title: '用户数量', dataIndex: 'address', key: '8', }, {
-  title: '商品数量', dataIndex: 'address', key: '9', }, {
-  title: '成交金额', dataIndex: 'address', key: 'address', }, {
+  title: '图片', dataIndex: '1', key: '1', render: text => <a href="">{text}</a>, }, {
+  title: '商品名称', dataIndex: '2', key: '2', }, {
+  title: 'SKU编号', dataIndex: '3', key: '3', }, {
+  title: '所属品类', dataIndex: '4', key: '4', }, {
+  title: '排序', dataIndex: '5', key: '5', }, {
+  title: '当前状态', dataIndex: '6', key: '6', }, {
+  title: '所属用户', dataIndex: '7', key: '7', }, {
+  title: '更新时间', dataIndex: '8', key: '8', }, {
   title: '操作', key: 'action', render: (text, record) => (
     <span>
-      <a href="">详情</a>
+      <a href="">添加到商品SKU</a>
       <span className="ant-divider" />
       <a href="">编辑</a>
+      <span className="ant-divider" />
+      <a href="">删除</a>
     </span>
   ),
 }];

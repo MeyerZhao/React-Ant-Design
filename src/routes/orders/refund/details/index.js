@@ -29,25 +29,22 @@ const data = [{
 }];
 
 const columns_refund = [{
-  title: '下单方', dataIndex: 'item1', key: 'item1', }, {
-  title: '', dataIndex: 'item2', key: 'item2', render: text => <div><p >{text.conent}</p><span>{text.date}</span></div>, }, {
-  title: '接单方', dataIndex: 'item3', key: 'item3', }, {
-  title: '', dataIndex: 'item4', key: 'item4', render: text => <div><p >{text.conent}</p><span>{text.date}</span></div>, }];
+  title: '操作者', width:150, dataIndex: 'item1', key: 'item1', }, {
+  title: '操作时间', width:250, dataIndex: 'item2', key: 'item2', }, {
+  title: '操作内容', dataIndex: 'item3', key: 'item3', }];
+
 
 const data_refund = [{
   key: '1',
-  item1: '13655286637',
-  item2: {
-    conent:"发起退款，退款金额90.00  退款类型：漏单 退款原因：测试订单",
-    date:"2017-05-19 11:30:42"
-  },
-  item3: '南京蓝岛花艺',
-  item4: {
-    conent:"发起退款，退款金额90.00  退款类型：漏单 退款原因：测试订单",
-    date:"2017-05-19 11:30:42"
-  },
-
-}];
+  item1: '下单方手机',
+  item2: '13655286637',
+  item3: '发起退款，退款金额90.00  退款类型：漏单 退款原因：测试订单', 
+}, {
+  key: '2',
+  item1: '接单方店铺',
+  item2: '13655286637',
+  item3: '拒绝退款，拒绝原因：请修改退款金额', }
+  ];
 
 const columns4 = [{
   title: '商品信息', width:120,  dataIndex: 'item1', key: 'item1'}, {
@@ -67,7 +64,7 @@ export default class Users extends React.Component {
 	    	  
 	    	  <Row gutter={8}>
 	    	    <Col span={12} >
-	    	    	<h2 style={{color:"#4d545c", marginBottom:"5px"}}>订单详情：{this.props.params.id}</h2> 
+	    	    	<h2 style={{color:"#4d545c", marginBottom:"5px"}}>订单编号：{this.props.params.id}</h2> 
 	    	    	<p style={{marginBottom:"10px", color:"#94a1b0"}} >订单类型：配送单    来源渠道：API   </p>
 
               <h2 style={{color:"#4d545c"}}>当前退款状态：退款中，等待接单方处理</h2>
