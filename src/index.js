@@ -55,6 +55,8 @@ import BankCardManage from './routes/finance/bank_card_manage/';
 import SMSMgr from './routes/application/sms_mgr/';
   import SMSMgrDetails from './routes/application/sms_mgr/details';
 
+import Data_Analysis from './routes/data_analysis'; 
+
 import AdminAddress from './routes/admin_address/';
     import AdminAddressDetails from './routes/admin_address/details/';
 
@@ -117,7 +119,8 @@ ReactDOM.render(
           <Route breadcrumbName="短信明细"  path="sms_mgr/:id" component={SMSMgrDetails}> </Route>
       </Route>
 
-      <Route breadcrumbName="数据分析" path="data_analysis"> </Route>
+      <Route breadcrumbName="数据分析" path="data_analysis" component={Data_Analysis}> </Route>
+
       <Route breadcrumbName="管理员通讯录" path="admin_address" component={AdminAddress}> </Route>
         <Route breadcrumbName="管理员通讯录编辑"  path="admin_address/:id" component={AdminAddressDetails}> </Route>
     </Route>
