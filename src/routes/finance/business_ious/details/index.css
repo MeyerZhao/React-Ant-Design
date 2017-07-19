@@ -1,0 +1,18 @@
+.income_bg {
+    color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 18px #5cb85c;
+    margin:20px auto;
+    padding-left: 111px;
+    background: #5cb85c
+}
+.cost_bg{
+    color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 18px #e55850;
+    margin:20px auto;
+    padding-left: 111px;
+    background: #e55850
+}

@@ -1,11 +1,13 @@
 import React from 'react'
-import { Form, Row, Col, Input, Button, Select, } from 'antd'
-import { DatePicker } from 'antd'
+import { Form, Row, Col, Input, Button, DatePicker, Select} from 'antd'
+import { Radio } from 'antd';
 
+    const RadioGroup = Radio.Group;
     const InputGroup = Input.Group;
     const { RangePicker } = DatePicker;
     const Search = Input.Search;
 
+    const plainOptions = ['状态1', '状态2', '状态3'];
     const ColProps = {
       xs: 24,
       sm: 12,
@@ -14,12 +16,23 @@ import { DatePicker } from 'antd'
       },
     }
 
-
 class AdvancedSearchForm extends React.Component {
   state = {
     expand: false,
-
+    value1: '状态1',
   };
+  onChange1 = (e) => {
+     console.log('radio1 checked', e.target.value);
+     this.setState({
+       value1: e.target.value,
+     });
+   }
+   onChange2 = (e) => {
+     console.log('radio1 checked', e.target.value);
+     this.setState({
+       value2: e.target.value,
+     });
+   }
 
   handleSearch = (e) => {
     e.preventDefault();
@@ -41,40 +54,25 @@ class AdvancedSearchForm extends React.Component {
           <Col {...ColProps} xl={6} md={9} >
             <Search 
                 size="large"
-                placeholder="UID/手机号码/名称 "
+                placeholder="UID/手机号码/名称 （用户+商家）"
                 onSearch={value => console.log(value)}
               />
           </Col>
           <Col {...ColProps} xl={6} md={9} >
-            <InputGroup compact>
-              <Select size="large" defaultValue="1"  style={{ width: '25%' }}>
-                <option value="1">白条总额</option>
+            <InputGroup compact size="large">
+              <Select size="large" defaultValue="白条总额"  style={{ width: '25%' }}>
+                <option value="白条总额">白条总额</option>
                 <option value="白条余额">白条余额</option>
                 <option value="应收金额">应收金额</option>
               </Select>
-              <RangePicker
-                  style={{ width: '75%' }} 
-                  size="large"
-                  showTime
-                  format="YYYY-MM-DD HH:mm:ss"
-                  placeholder={['开始时间', '结束时间']}
-                />
+              <Input  style={{ width: "30%", textAlign: 'center' }} placeholder="最小值" />
+              <Input  style={{ width: "15%", textAlign: 'center', borderLeft: 0, pointerEvents: 'none' }} placeholder="~" />
+              <Input  style={{ width: "30%", textAlign: 'center', borderLeft: 0 }} placeholder="最大值" />
             </InputGroup>
           </Col>
         </Row>
-        <Row gutter={24}>
-          <Col {...ColProps} xl={6} md={9} >
-            <InputGroup compact >
-              <label style={{ width: "25%", background:"#fff", height:"32px", lineHeight:"32px", padding:"0 10px", overflow:"hidden"}}  >白条用户数：</label>
-              <Input size="large" style={{ width: "30%", textAlign: 'center' }} placeholder="最小值" />
-              <Input size="large" style={{ width: "15%", textAlign: 'center', borderLeft: 0, pointerEvents: 'none' }} placeholder="~" />
-              <Input size="large" style={{ width: "30%", textAlign: 'center', borderLeft: 0 }} placeholder="最大值" />
-            </InputGroup>
-          </Col>
-         
-        </Row>
-     
 
+        
         <Row>
           <Col span={24} style={{ textAlign: 'left' }}>
             <Button type="primary" htmlType="submit" size="large">搜索</Button>

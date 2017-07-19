@@ -6,7 +6,7 @@ import { Radio } from 'antd';
     const InputGroup = Input.Group;
     const Option = Select.Option;
     const Search = Input.Search;
-    const FormItem = Form.Item;
+
 
     const plainOptions = ['类型1', '类型2', '类型3'];
     const plainOptions2 = ['未开通', '已开通'];
@@ -18,16 +18,12 @@ import { Radio } from 'antd';
         marginBottom: 16,
       },
     }
-    const formItemLayout = {
-          labelCol: { span: 6},
-          wrapperCol: { span: 18 },
-    };
 
 class AdvancedSearchForm extends React.Component {
   state = {
     expand: false,
-    value1: '状态1',
-    value2: '渠道1',
+    value1: '类型1',
+    value2: '未开通',
   };
   onChange1 = (e) => {
      console.log('radio1 checked', e.target.value);
@@ -56,7 +52,7 @@ class AdvancedSearchForm extends React.Component {
         onSubmit={this.handleSearch}
       >
         <Row gutter={24}>
-          <Col {...ColProps} xl={5} md={6} >
+          <Col {...ColProps} xl={6} md={9} >
             <Search 
                 size="large"
                 placeholder="输入关键字"
@@ -74,28 +70,24 @@ class AdvancedSearchForm extends React.Component {
                 <Option value="白条余额">白条余额</Option>
                 
               </Select>
-              <Input size="large" style={{ width: '25%', textAlign: 'center' }} placeholder="最小值" />
-              <Input size="large" style={{ width: 25, borderLeft: 0, pointerEvents: 'none' }} placeholder="~" />
-              <Input size="large" style={{ width: '25%', textAlign: 'center', borderLeft: 0 }} placeholder="最大值" />
+              <Input size="large" style={{ width: '30%', textAlign: 'center' }} placeholder="最小值" />
+              <Input size="large" style={{ width: '15%', textAlign: 'center', borderLeft: 0, pointerEvents: 'none' }} placeholder="~" />
+              <Input size="large" style={{ width: '30%', textAlign: 'center', borderLeft: 0 }} placeholder="最大值" />
             </InputGroup>
           </Col>
         </Row>
         <Row gutter={24}>
-          <Col {...ColProps} xl={5} md={8} >
-              <FormItem style={{width:"100%", background:"#fff", borderRadius: "4px" }}
-                {...formItemLayout}
-                label="用户类型"
-              >
+          <Col {...ColProps} xl={6} md={9} >
+              <InputGroup compact style={{width:"100%", background:"#fff", borderRadius: "4px" }}>
+                <label style={{ width: "25%", background:"#fff", height:"32px", lineHeight:"32px", padding:"0 10px", overflow:"hidden"}}  >用户类型：</label>
                   <RadioGroup options={plainOptions} onChange={this.onChange1} value={this.state.value1} />
-              </FormItem>
+              </InputGroup>
           </Col>
-          <Col {...ColProps} xl={5} md={8} >
-              <FormItem style={{width:"100%", background:"#fff", borderRadius: "4px" }}
-                {...formItemLayout}
-                label="白条状态"
-              >
+          <Col {...ColProps} xl={6} md={9} >
+              <InputGroup compact style={{width:"100%", background:"#fff", borderRadius: "4px" }}>
+                <label style={{ width: "25%", background:"#fff", height:"32px", lineHeight:"32px", padding:"0 10px", overflow:"hidden"}}  >白条状态：</label>
                   <RadioGroup options={plainOptions2} onChange={this.onChange2} value={this.state.value2} />
-              </FormItem>
+              </InputGroup>
           </Col>
         </Row>
 

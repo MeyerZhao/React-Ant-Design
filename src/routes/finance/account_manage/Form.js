@@ -1,12 +1,11 @@
 import React from 'react'
-import { Form, Input, Button, Select, Radio, Checkbox } from 'antd'
+import { Form, Input, Button, Radio, Checkbox } from 'antd'
 import { DatePicker } from 'antd';
 const { RangePicker } = DatePicker;
 
 
 const CheckboxGroup = Checkbox.Group;
 const RadioGroup = Radio.Group;
-const Option = Select.Option;
 const FormItem = Form.Item;
 
 const options = [
@@ -97,13 +96,7 @@ class RegistrationForm extends React.Component {
           <CheckboxGroup options={options} defaultValue={['交易限制']}  />
         </FormItem>
 
-        <FormItem {...formItemLayout} label="所属品类">
-          <Select placeholder="所属品类">
-               <Option value="1">顶级品类</Option>
-               <Option value="2">顶级品类1</Option>
-               <Option value="3">顶级品类2</Option>
-             </Select>
-        </FormItem>
+      
 
          <FormItem
           {...formItemLayout}
@@ -119,9 +112,6 @@ class RegistrationForm extends React.Component {
         </FormItem>
 
        <FormItem {...formItemLayout} label="调整原因">  <Input type="textarea" rows={4} /> </FormItem>
-
-
-
       
         <FormItem {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit" size="large">确认提交</Button>

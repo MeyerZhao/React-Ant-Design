@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, Button, Checkbox} from 'antd';
+import { Form, Input, Button } from 'antd';
 const FormItem = Form.Item;
 
 
@@ -105,9 +105,7 @@ class RegistrationForm extends React.Component {
 
         <FormItem {...formItemLayout} label="所属部门"> <Input /> </FormItem>
 
-        <FormItem {...formItemLayout} label="绑定IP"> <Input /> </FormItem>
 
-        <FormItem {...formItemLayout} label="授权码"><Checkbox /> </FormItem>
 
       
         <FormItem {...tailFormItemLayout}>

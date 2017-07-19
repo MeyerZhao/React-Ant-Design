@@ -123,7 +123,7 @@ class RegistrationForm extends React.Component {
 
            <Upload {...props}>
                <Button>
-                 <Icon type="upload" /> Upload
+                 <Icon type="upload" /> 上传附件
                </Button>
              </Upload>
 

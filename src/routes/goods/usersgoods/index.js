@@ -3,18 +3,14 @@ import { Row, Col, Button, Table } from 'antd';
 // import Modal from '../../../components/Modal.js'
 // import Form from './Form'
 import AdvSearch from './AdvSearch'
-
-
-
-
-
-
-
-
-
+import { Select } from 'antd';
+const table_img ={
+  verticalAlign: "middle",
+  marginRight: "8px"
+}
 
 const columns = [{
-  title: '图片', dataIndex: '1', key: '1', render: text => <a href="">{text}</a>, }, {
+  title: '图片', dataIndex: 'item1', key: '1', render: (text, record) =><span><img width="30" style={table_img} src={text} alt=""/>{record.item2}</span>, }, {
   title: '商品名称', dataIndex: '2', key: '2', }, {
   title: 'SKU编号', dataIndex: '3', key: '3', }, {
   title: '所属品类', dataIndex: '4', key: '4', }, {
@@ -33,6 +29,39 @@ const columns = [{
   ),
 }];
 
+const data = [{
+  key: '1',
+  item1: 'https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg',
+  item2: 'John Brown name',
+  item3: 'John Brown',
+  item4: 'John Brown',
+  item5: 'John Brown',
+  item6: 'John Brown',
+  item7: 'John Brown',
+  item8: 'John Brown',
+  item9: 'John Brown',
+}, {
+  key: '2',
+  item1: 'https://t.alipayobjects.com/images/rmsweb/T16xRhXkxbXXXXXXXX.svg',
+  item2: 'John Brown name',
+  item3: 'John Brown',
+  item4: 'John Brown',
+  item5: 'John Brown',
+  item6: 'John Brown',
+  item7: 'John Brown',
+  item8: 'John Brown',
+  item9: 'John Brown',
+}];
+
+
+const rowSelection = {
+  onChange: (selectedRowKeys, selectedRows) => {
+    console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+  },
+  getCheckboxProps: record => ({
+    disabled: record.name === 'Disabled User',    // Column configuration not to be checked
+  }),
+};
 
 export default class Users extends React.Component {
   render(){
@@ -55,7 +84,21 @@ export default class Users extends React.Component {
           </Col>
         </Row>
 
-        <Table columns={columns} />
+        <Row style={{marginBottom:'10px'}}>
+          <Col span={24}>
+            <div>
+              <Select defaultValue="批量操作" style={{ width: 120, marginBottom:"10px" }} >
+                <option value="批量操作">批量操作</option>
+                <option value="批量上架">批量上架</option>
+                <option value="批量下架">批量下架</option>
+                <option value="批量删除">批量删除</option>
+              </Select>
+            </div>
+            <Table columns={columns} rowSelection={rowSelection} dataSource={data} />
+          </Col>
+        </Row>
+  
+       
         
 
     	</div>

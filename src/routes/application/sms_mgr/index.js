@@ -17,7 +17,7 @@ const columns = [{
   title: '更新时间', dataIndex: 'item9', key: 'item9', }, {
   title: '操作', key: 'action', render: (text, record) => (
     <span>
-      <a href="">短信明细</a>
+      <a href="#/app/sms_mgr/517052012334556">短信明细</a>
       <span className="ant-divider" />
       <a href="">编辑</a>
     </span>
@@ -26,7 +26,7 @@ const columns = [{
 
 const data = [{
   key: '1',
-  item1: '#/app/sms_mgr/517052012334556',
+  item1: 'John Brown',
   item2: 'John Brown',
   item3: 'John Brown',
   item4: 'John Brown',

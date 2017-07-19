@@ -1,5 +1,6 @@
 import React from 'react'
 import { Table, Row, Col, Button, Input, } from 'antd';
+import { Link } from 'react-router'
 import AdvSearch from './AdvSearch'
 const Search = Input.Search;
 
@@ -22,7 +23,10 @@ export default class Users extends React.Component {
     return (
     	<div>
         <Row style={{marginBottom:'10px'}}>
-          <Col span={12} offset={12}>
+          <Col span={12} >
+            <Button type="primary" size="large" ><Link to="finance/business_ious/details">用户明细</Link></Button>
+          </Col>
+          <Col span={12}>
             <Button size="large" style={{float: "right"}}>高级搜索</Button>
             <Search 
                size="large"

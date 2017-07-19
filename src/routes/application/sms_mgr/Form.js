@@ -1,11 +1,8 @@
 import React from 'react'
-import { Form, Input, Button,} from 'antd';
-import { Select } from 'antd';
-import { Radio } from 'antd';
+import { Form, Input, Button, Radio} from 'antd';
 
 
 const RadioGroup = Radio.Group;
-const Option = Select.Option;
 const FormItem = Form.Item;
 
 const plainOptions = ['文字', '语音'];
@@ -92,21 +89,12 @@ class RegistrationForm extends React.Component {
         },
       },
     };
-    const prefixSelector =(
-      <Select defaultValue="86" style={{ width: 60 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-      )
-
-
-
 
     return (
       <Form onSubmit={this.handleSubmit}>
 
         <FormItem {...formItemLayout} label="商户UID">
-          <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+          <Input />
         </FormItem>
          <FormItem {...formItemLayout} label="短信类型">
            <RadioGroup options={plainOptions} onChange={this.onChange1} value={this.state.value1} />

@@ -59,13 +59,13 @@ class RegistrationForm extends React.Component {
       <Form onSubmit={this.handleSubmit}>
       
 
-        <FormItem >
-        <div style={{textAlign:"center"}}>
-        <RadioGroup onChange={this.onChange2} value={this.state.value}>
+
+        <FormItem {...formItemLayout} label="选项">
+          <RadioGroup onChange={this.onChange2} value={this.state.value}>
             <Radio value={1}>减少</Radio>
             <Radio value={2}>增加 </Radio>
           </RadioGroup>
-        </div>
+
         </FormItem>
 
         <FormItem {...formItemLayout} label="用户UID"> <Input /> </FormItem>
@@ -73,17 +73,16 @@ class RegistrationForm extends React.Component {
         <FormItem {...formItemLayout} label="处理金额"> 
         <InputNumber 
              style={{width:"100%"}}
-             defaultValue={1000}
-             formatter={value => `￥ ${value.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}
+             formatter={value => `${value.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}
              parser={value => value.replace(/\$\s?|(,*)/g, '')}
            />
         </FormItem>
 
+         {this.state.value === 1 ? ReceiveUid: null}
         <FormItem {...formItemLayout} label="处理说明"> 
           <Input type="textarea" rows={4} />
         </FormItem>
 
-           {this.state.value === 1 ? ReceiveUid: null}
 
         <FormItem {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit" size="large">确认提交</Button>

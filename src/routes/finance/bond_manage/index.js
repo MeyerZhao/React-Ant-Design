@@ -16,7 +16,7 @@ const columns = [{
   title: '更新时间', dataIndex: 'item9', key: '9', }, {
   title: '操作', key: 'action', render: (text, record) => (
     <span>
-      <a href="">变动明细</a>
+      <a href="#/finance/bond_manage/details">变动明细</a>
       <span className="ant-divider" />
       <Modal title="保证金人工处理"> <Form /> </Modal>
     </span>

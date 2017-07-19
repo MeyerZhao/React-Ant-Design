@@ -44,8 +44,10 @@ class RegistrationForm extends React.Component {
 
     return (
       <Form onSubmit={this.handleSubmit}>
-
+  
         <FormItem {...formItemLayout} label="用户UID"> <Input /> </FormItem>
+        <FormItem {...formItemLayout} label="注册手机"> <Input /> </FormItem>
+        <FormItem {...formItemLayout} label="昵称/商户名称"> <Input /> </FormItem>
 
         <FormItem {...formItemLayout} label="开户人"> <Input /> </FormItem>
 

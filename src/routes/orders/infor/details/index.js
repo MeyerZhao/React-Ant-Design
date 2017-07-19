@@ -4,11 +4,37 @@ import PicturesWall2 from '../../../../components/PicturesWall2.jsx'
 
 const columns = [{
   title: '下单时间', dataIndex: 'item1', key: 'item1', render: text => <a href={text}>{text}</a>, }, {
-  title: '支付时间', dataIndex: 'item2', key: 'item2', }, {
-  title: '确认时间', dataIndex: 'item3', key: 'item3', }, {
-  title: '签收时间', dataIndex: 'item4', key: 'item4', }, {
-  title: '转账时间', dataIndex: 'item5', key: 'item5', }, {
-  title: '退款时间', dataIndex: 'item6', key: 'item6', }];
+  title: '确认时间（接单方）', dataIndex: 'item2', key: 'item2', }, {
+  title: '修改时间（接单方）', dataIndex: 'item3', key: 'item3', }, {
+  title: '复核确认时间（下单方）', dataIndex: 'item4', key: 'item4', }, {
+  title: '关闭时间', dataIndex: 'item5', key: 'item5', }];
+
+const data = [{
+  key: '1',
+  item1: '2017-05-19 11:30:42',
+  item2: '',
+  item3: '',
+  item4: '',
+  item5: '',
+  item6: '',
+  item7: '',
+}, {
+  key: '2',
+  item1: '183.17.49.153',
+  item2: '183.17.49.153',
+  item3: '183.17.49.153',
+  item4: '183.17.49.153',
+  item5: '183.17.49.153',
+  item6: '183.17.49.153',
+}]
+
+
+
+
+
+
+
+
 
 
 const business = [{
@@ -81,7 +107,7 @@ export default class Users extends React.Component {
         </div>
         <div style={{paddingLeft:"40px"}}>
           <h4 style={{borderBottom: "2px solid #ddd", paddingBottom: "10px"}} >基础信息</h4>
-          <Table columns={columns} pagination={false} style={{marginBottom:"30px"}}/>
+          <Table columns={columns} dataSource={data} pagination={false} style={{marginBottom:"30px"}}/>
 
           <h4 style={{borderBottom: "2px solid #ddd", paddingBottom: "10px"}} >交易双方</h4>
           <Table columns={business} dataSource={businessdata} pagination={false} style={{marginBottom:"30px"}}/>
