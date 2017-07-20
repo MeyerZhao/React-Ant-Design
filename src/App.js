@@ -27,7 +27,7 @@ class App extends Component {
                   </div>
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
-                  React-Admin ©2017 Created by 865470087@qq.com
+                 Huaxm ©2017 
                 </Footer>
               </Layout>
             </Layout>
