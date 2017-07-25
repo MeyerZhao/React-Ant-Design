@@ -40,11 +40,12 @@ export default class Users extends React.Component {
 	    	  
 	    	  <Row gutter={8}>
 	    	    <Col span={12} >
-	    	    	<h2 style={{color:"#4d545c", marginBottom:"5px"}}>订单编号：{this.props.params.id}</h2> 
-              <p style={{marginBottom:"10px", color:"#94a1b0"}} >订单类型：信息订单 来源渠道</p>
 
               <h2 style={{color:"#4d545c"}}>配送单号：1213132424</h2>
               <p style={{marginBottom:"10px", color:"#94a1b0"}} >配送类型（闪送/达达/自有）</p>
+
+	    	    	<h2 style={{color:"#4d545c", marginBottom:"5px"}}>附加号码：{this.props.params.id}</h2> 
+              <p style={{marginBottom:"10px", color:"#94a1b0"}} >订单类型：信息订单 来源渠道</p>
 
               <h2 style={{color:"#4d545c", marginBottom:"5px"}}>当前状态：配送中 &nbsp;&nbsp;&nbsp; 配送价格：<span style={{color:"#e55850"}}>￥90.00</span></h2>
               <p style={{marginBottom:"10px", color:"#94a1b0"}} >距离目的地1.0km</p>

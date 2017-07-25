@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { Router, Route, hashHistory } from 'react-router';
+import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
 import App from './App'
+import Home from './routes/Home'
 
 import UserList from './routes/user/userlist/';
 import BusinessType from './routes/user/businesstype/';
@@ -17,8 +18,6 @@ import TypeSku from './routes/goods/typesku/';
 import GoodsSku from './routes/goods/goodssku/';
 import UsersType from './routes/goods/userstype/';
 import UsersGoods from './routes/goods/usersgoods/';
-
-
 
 import General from './routes/orders/general/';
     import GeneralDetails from './routes/orders/general/details/';
@@ -64,7 +63,8 @@ import AdminAddress from './routes/admin_address/';
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route breadcrumbName="首页" path="/" component={App}>
-      <Route breadcrumbName="用户" path="user">
+      <IndexRoute component={Home}/>
+      <Route breadcrumbName="用户" path="/user">
 				<Route breadcrumbName="用户列表" path="userlist" component={UserList}> </Route>
 				<Route breadcrumbName="商家类型" path="businesstype" component={BusinessType}> </Route>
 				<Route breadcrumbName="商家列表" path="businesslist" component={BusinessList}> </Route>
@@ -72,7 +72,7 @@ ReactDOM.render(
       <Route breadcrumbName="商品" path="goods">
       	<Route breadcrumbName="商品品类" path="goodstype" component={GoodsType}> </Route>
       	<Route breadcrumbName="商品属性" path="goodsprop" component={GoodsProp}> </Route>
-          <Route breadcrumbName="添加商品属性"  path="goodsprop/goodspropvalue" component={GoodsPropValue}> </Route>
+          <Route breadcrumbName="属性值列表"  path="goodsprop/goodspropvalue" component={GoodsPropValue}> </Route>
 
       	<Route breadcrumbName="品种SKU" path="typesku" component={TypeSku}> </Route>
       	<Route breadcrumbName="商品SKU" path="goodssku" component={GoodsSku}> </Route>
@@ -119,7 +119,7 @@ ReactDOM.render(
           <Route breadcrumbName="短信明细"  path="sms_mgr/:id" component={SMSMgrDetails}> </Route>
       </Route>
 
-      <Route breadcrumbName="数据分析" path="data_analysis" component={Data_Analysis}> </Route>
+      <Route breadcrumbName="数据" path="data_analysis" component={Data_Analysis}> </Route>
 
       <Route breadcrumbName="管理员通讯录" path="admin_address" component={AdminAddress}> </Route>
         <Route breadcrumbName="管理员通讯录编辑"  path="admin_address/:id" component={AdminAddressDetails}> </Route>

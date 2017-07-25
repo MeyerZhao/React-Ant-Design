@@ -24,6 +24,12 @@ const columns = [{
 
 
 export default class Users extends React.Component {
+  state={
+    show: false,
+  }
+  handleClick =(e) => {
+   this.setState({show: !this.state.show});
+  }
   render(){
     return (
     	<div>
@@ -34,13 +40,13 @@ export default class Users extends React.Component {
           </Col>
          
           <Col span={12}>
-            <Button size="large" style={{float: "right"}}>高级搜索</Button>
+                        <Button size="large" style={{float: "right"}} onClick={this.handleClick}>高级搜索</Button>
           </Col>
         </Row>
         
         <Row style={{marginBottom:'10px'}}>
           <Col span={24}>
-            <AdvSearch></AdvSearch>
+            {this.state.show ? <AdvSearch /> : null}
           </Col>
         </Row>
 

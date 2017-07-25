@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table } from 'antd';
-// import Modal from '../../../../components/Modal.js'
-// import Form from './Form'
+import Modal from '../../../../components/Modal.js'
+import Form2 from '../Form'
 
 const columns = [{
   title: '属性编号', dataIndex: 'name', key: 'name', render: text => <a href="">{text}</a>, }, {
@@ -23,7 +23,7 @@ export default class Users extends React.Component {
   render(){
     return (
     	<div>
-        
+         <Modal title="添加属性值"> <Form2 /> </Modal>
         <Table columns={columns}  />
 
     	</div>

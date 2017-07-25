@@ -2,6 +2,7 @@ import React from 'react'
 import { Table, Row, Col, Button, Input, Tabs } from 'antd'
 import { Popover, Icon } from 'antd';
 import ModalList from '../../../components/ModalList'
+import AdvSearch from './AdvSearch'
 import Form from './Form'
 
 const Search = Input.Search;
@@ -26,7 +27,7 @@ const columns = [{
     return(
     <div>
     <span style={{marginRight:'5px'}}>{text}</span>
-    <Popover content={reason_content} title="修改人 IP" trigger="hover" placement="right">
+    <Popover content={reason_content} title="修改人 更新时间" trigger="hover" placement="right">
       <Icon type="question-circle-o" />
     </Popover>
     </div>
@@ -140,12 +141,18 @@ const columns4 = [{
 
 
 export default class Users extends React.Component {
+  state={
+    show: false,
+  }
+  handleClick =(e) => {
+   this.setState({show: !this.state.show});
+  }
   render(){
     return (
     	<div>
         <Row style={{marginBottom:'10px'}}>
           <Col span={12} offset={12}>
-            <Button size="large" style={{float: "right"}}>高级搜索</Button>
+            <Button size="large" style={{float: "right"}} onClick={this.handleClick}>高级搜索</Button>
             <Search 
                size="large"
                placeholder="输入关键字"
@@ -153,6 +160,13 @@ export default class Users extends React.Component {
              />
           </Col>
         </Row>
+
+        <Row style={{marginBottom:'10px'}}>
+          <Col span={24}>
+            {this.state.show ? <AdvSearch /> : null}
+          </Col>
+        </Row>
+
         <Tabs defaultActiveKey="1" >
            <TabPane tab="提现申请" key="1"> 
               <Table 

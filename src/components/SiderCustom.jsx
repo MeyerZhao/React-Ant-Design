@@ -12,7 +12,7 @@ class SiderCustom extends Component {
         collapsed: false,
         mode: 'inline',
         openKey: '',
-        selectedKey: ''
+        selectedKey: '/'
     };
     componentDidMount() {
         const _path = this.props.path;
@@ -64,8 +64,8 @@ class SiderCustom extends Component {
                     openKeys={[this.state.openKey]}
                     onOpenChange={this.openMenu}
                 >
-                    <Menu.Item key="/app/dashboard/index">
-                        <Link to={'/app/dashboard/index'}><Icon type="mobile" /><span className="nav-text">首页</span></Link>
+                    <Menu.Item key="/">
+                        <Link to={'/'}><Icon type="mobile" /><span className="nav-text">首页</span></Link>
                     </Menu.Item>
 
                                 <SubMenu
@@ -124,7 +124,7 @@ class SiderCustom extends Component {
                                 <Menu.Item key="/data_analysis">
                                     <Link to="/data_analysis">
                                         <Icon type="area-chart" />
-                                    <span className="nav-text">数据分析</span>
+                                    <span className="nav-text">数据</span>
                                     </Link>
                                 </Menu.Item>
 

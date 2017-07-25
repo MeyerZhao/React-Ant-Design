@@ -13,10 +13,10 @@ function callback(key) {
 
 export default class Users extends React.Component {
   state={
-  liked: false,
+    show: false,
   }
   handleClick =(e) => {
-   this.setState({liked: !this.state.liked});
+   this.setState({show: !this.state.show});
   }
   render(){
     return (
@@ -34,16 +34,18 @@ export default class Users extends React.Component {
         
         <Row style={{marginBottom:'10px'}}>
           <Col span={24}>
-            {this.state.liked ? <AdvSearch /> : null}
+            {this.state.show ? <AdvSearch /> : null}
           </Col>
         </Row>
         
         <Tabs defaultActiveKey="1" onChange={callback}>
            <TabPane tab="全部" key="1"> <Table /> </TabPane>
-           <TabPane tab="待审核(1)" key="2"> <Table /> </TabPane>
-           <TabPane tab="营业" key="3"> <Table /> </TabPane>
-           <TabPane tab="歇业(3)" key="4"> <Table /> </TabPane>
-         </Tabs>
+           <TabPane tab="主体认证（1）" key="2"> <Table /> </TabPane>
+           <TabPane tab="资料完善（2）" key="3"> <Table /> </TabPane>
+           <TabPane tab="营业" key="4"> <Table /> </TabPane>
+           <TabPane tab="歇业（3）" key="5"> <Table /> </TabPane>
+        </Tabs>
+
 
     	</div>
     )
